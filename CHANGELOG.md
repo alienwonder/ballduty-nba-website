@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Oct 7, 2026 — ballduty.com now serves this site
+
+Pete took ballduty.com and www.ballduty.com off the old World Cup project in Vercel's settings, and CC added them to this project, with ballduty.com redirecting to www.ballduty.com as before. `scripts/check-addresses.sh` passes against the live domain: every World Cup address forwards to wc26.ballduty.com, the NextBucket pages answer, and `app-ads.txt` is served word for word through the bare-domain hop. The script now checks that hop once and then checks the pages on www.
+
 ## Oct 6, 2026 — Stage 1: the site, the legal pages and the World Cup redirects
 
 **Feature.** The first version of the NextBucket website, built to take over ballduty.com from the

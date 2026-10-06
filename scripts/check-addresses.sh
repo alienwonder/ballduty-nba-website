@@ -12,6 +12,18 @@ set -u
 BASE="${1:?usage: check-addresses.sh <base URL>}"
 BASE="${BASE%/}"
 
+# The bare domain sends every visitor on to www, as the old site did, so check
+# that hop once and then check the pages on www.
+if [[ "$BASE" == "https://ballduty.com" ]]; then
+  hop=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" "$BASE/privacy/nba")
+  if [[ "$hop" =~ ^30[78]\ https://www.ballduty.com/privacy/nba$ ]]; then
+    echo "  ok    ballduty.com sends visitors on to www.ballduty.com ($hop)"
+  else
+    echo "  FAIL  ballduty.com should redirect to www.ballduty.com, got: $hop"
+  fi
+  BASE="https://www.ballduty.com"
+fi
+
 PATHS=(
   /privacy /terms /support /rules /leaderboard /guidelines
   /bold-calls /claim /humans-vs-agents /humans-vs-agents/chronicle
