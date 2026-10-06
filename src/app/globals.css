@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Barlow+Condensed:wght@700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Layout and fonts follow the WC26 site (WEBSITE_DESIGN_REFERENCE.md in the
+   ballduty-wc26 repo). Colours are the NextBucket app's: orange #FF9F0A on
+   near-black #1A1A1A. The bright orange fails contrast as text on white, so
+   links on light backgrounds use --accent-ink. */
+:root {
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+
+  --accent: #FF9F0A;
+  --accent-hover: #E68A00;
+  --accent-ink: #A35A00;
+  --night: #1A1A1A;
+  --charcoal: #1C1C1E;
+  --muted: #6B7280;
+  --surface: #F7F7F7;
+  --border: #E5E7EB;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background-color: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Legal page prose ───────────────────────────────────────────────────── */
+.prose-legal h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.25rem;
+}
+
+.prose-legal .last-updated {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+
+.prose-legal h2 {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-legal p,
+.prose-legal li {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.prose-legal p {
+  margin-bottom: 1rem;
+}
+
+.prose-legal ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-legal ul li {
+  margin-bottom: 0.375rem;
+}
+
+.prose-legal strong {
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.prose-legal a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-legal table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.prose-legal th,
+.prose-legal td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose-legal thead th {
+  font-weight: 600;
+  color: var(--charcoal);
+  border-bottom: 2px solid var(--border);
+}
+
+/* Wide tables scroll inside their own box, never the page. */
+.table-scroll {
+  overflow-x: auto;
+}
