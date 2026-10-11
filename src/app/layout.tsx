@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | NextBucket",
   },
   description:
-    "NextBucket by BallDuty: watch a live NBA game and call who scores the next basket. The earlier you call it, the more it pays.",
+    "NextBucket by BallDuty: watch a live basketball game and call who scores the next basket. The earlier you call it, the more it pays.",
   metadataBase: new URL("https://ballduty.com"),
   openGraph: {
     siteName: "NextBucket by BallDuty",

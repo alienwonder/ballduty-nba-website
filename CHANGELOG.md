@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Oct 12, 2026 — "Basketball" instead of "NBA" on the home page
+
+The first of the four steps on the home page now says "a live basketball game", and so does the site's description, which search results show under the site's name. No page on the site names the NBA now. `CLAUDE.md` records the new policy addresses and the rule about not naming the NBA.
+
 ## Oct 12, 2026 — The logo on the home page, and the policies move to /nextbucket
 
 The home page now shows the NextBucket "Fast Break" mark above the wordmark, stacked the way the app's launch screen shows it. The shapes and colours are copied from the app's `mark.svg`. The home page content also sits higher on the screen, and the opening line now says "live basketball games" instead of "live NBA".

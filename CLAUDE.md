@@ -25,8 +25,12 @@ bash scripts/check-addresses.sh https://ballduty.com
 
 after any deploy that touches routes. Three things must always stay true:
 
-- `/privacy` and `/terms` list each app's policy. The NextBucket policies are `/privacy/nba` and
-  `/terms/nba`, and those are what the NextBucket app and its store listings link to.
+- `/privacy` and `/terms` list each app's policy. The NextBucket policies are `/privacy/nextbucket`
+  and `/terms/nextbucket`, and those are what the NextBucket app and its store listings link
+  to. They were at `/privacy/nba` and `/terms/nba` until Oct 12, 2026, and those addresses
+  forward to the new ones, so keep the forwarding in `next.config.ts`.
+- Pete wants no mention of the NBA on the site's pages (Oct 12, 2026). Say "basketball", and
+  word the independence line as "any basketball league or team".
 - `public/app-ads.txt` stays at the root, word for word. AdMob checks it for the WC26 app's ads.
 - Addresses this site will reuse later (`/rules`, `/leaderboard`, `/faq`, `/about`, `/pricing`)
   forward with temporary redirects, because browsers remember permanent ones.

@@ -8,7 +8,7 @@ import Wordmark from "@/components/Wordmark";
 const steps = [
   {
     title: "Watch the game. Call the next basket.",
-    body: "While you watch a live NBA game on TV, use your phone or tablet to call who will score the next field goal.",
+    body: "While you watch a live basketball game on TV, use your phone or tablet to call who will score the next field goal.",
   },
   {
     title: "Each basket, a new call",
