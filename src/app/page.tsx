@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Mark from "@/components/Mark";
 import Wordmark from "@/components/Wordmark";
 
 // Wording follows the app's intro pages (mobile_app/lib/screens/onboarding_screen.dart).
@@ -27,13 +28,17 @@ export default function HomePage() {
   return (
     <div>
       <section className="bg-[var(--night)] text-white">
-        <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
+        <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20 sm:pt-14 sm:pb-24 text-center">
+          {/* Stacked like the app's launch screen: the mark above the wordmark. */}
+          <div className="flex justify-center mb-6">
+            <Mark size={112} />
+          </div>
           <Wordmark size="lg" />
           <h1 className="font-display text-3xl sm:text-5xl mt-10 mb-5">
             Call the next basket.
           </h1>
           <p className="text-lg sm:text-xl text-white/75 max-w-[600px] mx-auto">
-            A second-screen game for live NBA. Watch on TV, and call who scores next on your phone.
+            A second-screen game for live basketball games. Watch on TV, and call who scores next on your phone.
           </p>
           <p className="mt-10 inline-block rounded-full border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent)]">
             Coming soon to the App Store

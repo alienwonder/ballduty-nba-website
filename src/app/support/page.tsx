@@ -43,7 +43,7 @@ export default function SupportPage() {
         Open the menu and tap <strong>Delete my data</strong>. It happens straight away and
         can&rsquo;t be undone. If you can&rsquo;t get into the app, email us from the address on
         your account with the subject &ldquo;Delete my account&rdquo;. The{" "}
-        <Link href="/privacy/nba">Privacy Policy</Link> says exactly what&rsquo;s removed.
+        <Link href="/privacy/nextbucket">Privacy Policy</Link> says exactly what&rsquo;s removed.
       </p>
 
       <h2>BallDuty Football &lsquo;26</h2>

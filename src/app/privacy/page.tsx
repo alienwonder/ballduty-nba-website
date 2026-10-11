@@ -10,7 +10,7 @@ export default function PrivacyListPage() {
   return (
     <AppPolicyList
       title="Privacy Policy"
-      nbaHref="/privacy/nba"
+      nextbucketHref="/privacy/nextbucket"
       wc26Href="https://wc26.ballduty.com/privacy"
     />
   );

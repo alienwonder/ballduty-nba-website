@@ -15,8 +15,8 @@ BASE="${BASE%/}"
 # The bare domain sends every visitor on to www, as the old site did, so check
 # that hop once and then check the pages on www.
 if [[ "$BASE" == "https://ballduty.com" ]]; then
-  hop=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" "$BASE/privacy/nba")
-  if [[ "$hop" =~ ^30[78]\ https://www.ballduty.com/privacy/nba$ ]]; then
+  hop=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" "$BASE/privacy/nextbucket")
+  if [[ "$hop" =~ ^30[78]\ https://www.ballduty.com/privacy/nextbucket$ ]]; then
     echo "  ok    ballduty.com sends visitors on to www.ballduty.com ($hop)"
   else
     echo "  FAIL  ballduty.com should redirect to www.ballduty.com, got: $hop"
@@ -31,7 +31,9 @@ PATHS=(
   /humans-vs-agents/transparency
   /wc26 /wc26/club-pass-promo /faq /about /pricing
 )
-NBA_PATHS=(/ /privacy/nba /terms/nba)
+NBA_PATHS=(/ /privacy/nextbucket /terms/nextbucket)
+# The policies' first addresses, which now forward to the ones above.
+OLD_POLICY_PATHS=(/privacy/nba /terms/nba)
 
 fail=0
 check() {
@@ -42,6 +44,7 @@ check() {
   case "$want" in
     ok)   [[ "$code" == 200 ]] ;;
     wc26) [[ "$code" =~ ^30[78]$ && "$loc" == "https://wc26.ballduty.com$path" ]] ;;
+    moved) [[ "$code" =~ ^30[78]$ && "$loc" == "$BASE${path%/nba}/nextbucket" ]] ;;
   esac
   if [[ $? -eq 0 ]]; then
     printf "  ok    %-40s %s %s\n" "$path" "$code" "$loc"
@@ -69,6 +72,7 @@ else
     esac
   done
   for p in "${NBA_PATHS[@]}"; do check "$p" ok; done
+  for p in "${OLD_POLICY_PATHS[@]}"; do check "$p" moved; done
 fi
 
 if [[ $fail -eq 0 ]]; then echo "All addresses OK on $BASE"; else echo "Some addresses FAILED on $BASE"; fi

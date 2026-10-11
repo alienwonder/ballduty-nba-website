@@ -1,5 +1,5 @@
-// Text wordmark until NextBucket has a finished logo. The app's current icon
-// is a placeholder that reads "Play NBA", which can't go on the site.
+// The NextBucket wordmark in text. The home page pairs it with the
+// "Fast Break" mark (Mark.tsx).
 export default function Wordmark({ size = "md" }: { size?: "md" | "lg" }) {
   const big = size === "lg";
   return (

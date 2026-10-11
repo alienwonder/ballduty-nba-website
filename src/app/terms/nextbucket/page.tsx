@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // section 5 has to be rewritten before that release ships.
 export default function NextBucketTermsPage() {
   return (
-    <LegalPage title="NextBucket Terms & Conditions" lastUpdated="Oct 6, 2026">
+    <LegalPage title="NextBucket Terms & Conditions" lastUpdated="Oct 12, 2026">
       <p>
         These terms cover your use of the NextBucket app, made by BallDuty Pty Ltd
         (&ldquo;BallDuty&rdquo;, &ldquo;we&rdquo;). By using the app you agree to them, so if you
@@ -22,7 +22,7 @@ export default function NextBucketTermsPage() {
 
       <h2>1. What NextBucket is</h2>
       <p>
-        NextBucket is a free-to-play game of skill. While you watch a live NBA game, you call
+        NextBucket is a free-to-play game of skill. While you watch a live basketball game, you call
         which player will score the next field goal, and you earn points for right calls and lose
         points for wrong ones.
       </p>
@@ -34,7 +34,7 @@ export default function NextBucketTermsPage() {
         </li>
         <li>
           <strong>It&rsquo;s independent.</strong> NextBucket is not affiliated with, endorsed by
-          or sponsored by the NBA or any team. All team names and logos belong to their
+          or sponsored by any basketball league or team. All team names and logos belong to their
           respective owners. Apple and Google are not sponsors of the game and are not involved
           in it.
         </li>
@@ -57,7 +57,7 @@ export default function NextBucketTermsPage() {
         </li>
         <li>
           You can delete your account at any time in the app, under <strong>Delete my data</strong>.
-          The <Link href="/privacy/nba">Privacy Policy</Link> says what that removes.
+          The <Link href="/privacy/nextbucket">Privacy Policy</Link> says what that removes.
         </li>
       </ul>
 

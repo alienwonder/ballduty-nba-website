@@ -55,6 +55,11 @@ const nextConfig: NextConfig = {
       })),
       // The old site's one NBA page. The whole site is NBA now.
       { source: "/nba", destination: "/", permanent: true },
+      // The NextBucket policies were at /privacy/nba and /terms/nba from
+      // Oct 6 to Oct 12, 2026, and App Store Connect and review notes may
+      // still carry those addresses.
+      { source: "/privacy/nba", destination: "/privacy/nextbucket", permanent: true },
+      { source: "/terms/nba", destination: "/terms/nextbucket", permanent: true },
     ];
   },
 };

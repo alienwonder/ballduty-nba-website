@@ -10,7 +10,7 @@ export default function TermsListPage() {
   return (
     <AppPolicyList
       title="Terms & Conditions"
-      nbaHref="/terms/nba"
+      nextbucketHref="/terms/nextbucket"
       wc26Href="https://wc26.ballduty.com/terms"
     />
   );

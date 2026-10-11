@@ -1,5 +1,13 @@
 # Changelog — NextBucket website
 
+## Oct 12, 2026 — The logo on the home page, and the policies move to /nextbucket
+
+The home page now shows the NextBucket "Fast Break" mark above the wordmark, stacked the way the app's launch screen shows it. The shapes and colours are copied from the app's `mark.svg`. The home page content also sits higher on the screen, and the opening line now says "live basketball games" instead of "live NBA".
+
+The NextBucket privacy policy moved from `/privacy/nba` to `/privacy/nextbucket`, and the terms moved from `/terms/nba` to `/terms/nextbucket`. The old addresses forward permanently to the new ones, because App Store Connect and the review notes may still carry them. `scripts/check-addresses.sh` checks the new addresses and the forwarding.
+
+Pete asked for no mention of the NBA on the policy pages. The terms now say "a live basketball game", and the independence line in the terms and the footer now says NextBucket isn't connected to "any basketball league or team". The terms' date changed to Oct 12, 2026. The privacy policy's text didn't change, so its date stays Oct 6.
+
 ## Oct 7, 2026 — ballduty.com now serves this site
 
 Pete took ballduty.com and www.ballduty.com off the old World Cup project in Vercel's settings, and CC added them to this project, with ballduty.com redirecting to www.ballduty.com as before. `scripts/check-addresses.sh` passes against the live domain: every World Cup address forwards to wc26.ballduty.com, the NextBucket pages answer, and `app-ads.txt` is served word for word through the bare-domain hop. The script now checks that hop once and then checks the pages on www.
