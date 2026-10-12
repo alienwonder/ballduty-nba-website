@@ -90,8 +90,8 @@ export default function NextBucketTermsPage() {
       <h2>6. Scoring and results</h2>
       <ul>
         <li>
-          How calls are scored is explained in the app. Scoring uses official play-by-play data
-          from our data provider, Sportradar.
+          How calls are scored is explained in the app. Scoring uses play-by-play data from a
+          commercial sports data provider.
         </li>
         <li>
           If you watch on TV and sync the app to your TV picture, you can earn bonus points for

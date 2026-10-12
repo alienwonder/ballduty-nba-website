@@ -49,7 +49,7 @@ export default function NextBucketPrivacyPage() {
           carries the delay your phone reported, so we can judge it against what you were watching.
           The app also records each sync tap: which basket you synced to, when its card appeared
           on your phone, and when you tapped. We use these records to check that TV sync is
-          accurate.
+          accurate and fair.
         </li>
         <li>
           <strong>Messages to support.</strong> If you use Contact support in the app, we keep
@@ -116,9 +116,6 @@ export default function NextBucketPrivacyPage() {
           </tbody>
         </table>
       </div>
-      <p>
-        Live game data comes from Sportradar. We send Sportradar nothing about you.
-      </p>
 
       <h2>4. Where your data is kept</h2>
       <p>

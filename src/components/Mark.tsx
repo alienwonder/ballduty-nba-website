@@ -9,7 +9,7 @@ export default function Mark({ size = 112 }: { size?: number }) {
       width={size}
       height={size}
       role="img"
-      aria-label="NextBucket logo"
+      aria-label="NextBucket"
     >
       <rect x="20" y="33" width="16" height="6" rx="3" fill="#F4F2EE" />
       <rect x="10" y="43" width="26" height="6" rx="3" fill="#F4F2EE" />

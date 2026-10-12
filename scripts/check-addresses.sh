@@ -31,7 +31,7 @@ PATHS=(
   /humans-vs-agents/transparency
   /wc26 /wc26/club-pass-promo /faq /about /pricing
 )
-NBA_PATHS=(/ /privacy/nextbucket /terms/nextbucket)
+NEXTBUCKET_PATHS=(/ /privacy/nextbucket /terms/nextbucket)
 # The policies' first addresses, which now forward to the ones above.
 OLD_POLICY_PATHS=(/privacy/nba /terms/nba)
 
@@ -71,7 +71,7 @@ else
       *) check "$p" wc26 ;;
     esac
   done
-  for p in "${NBA_PATHS[@]}"; do check "$p" ok; done
+  for p in "${NEXTBUCKET_PATHS[@]}"; do check "$p" ok; done
   for p in "${OLD_POLICY_PATHS[@]}"; do check "$p" moved; done
 fi
 

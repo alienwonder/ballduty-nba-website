@@ -1,5 +1,11 @@
 # Changelog — NextBucket website
 
+## Oct 12, 2026 — The site no longer names its data supplier
+
+The terms' scoring section now says scoring uses "play-by-play data from a commercial sports data provider", with no supplier named and no "official". The privacy policy no longer has the note under its list of services that named the supplier. We send the supplier no personal information, so it doesn't belong there. The TV sync section now says sync taps are used to check that TV sync is "accurate and fair". Both pages already carried today's date, so they stay Oct 12, 2026.
+
+The home page logo's label for screen readers is now "NextBucket" instead of "NextBucket logo". A search of the site for "Sportradar", "NBA", "logo" and "official" now finds them only in developer notes and in the forwarding rules for the old `/nba` addresses, none of which a visitor sees.
+
 ## Oct 12, 2026 — The terms cover the sync bonus
 
 Section 6 of the terms now says a player who watches on TV and syncs the app can earn bonus points for syncing, that the app explains when and how many, and that we may change the bonus or stop offering it. Section 4 now says the points we may take away from a cheating account include sync bonus points. The terms name no amounts, so the app stays the one place the numbers live. The bonus's server half went out this morning with its switch off, and these lines are in place before the switch goes on. The terms' date stays Oct 12, 2026.
