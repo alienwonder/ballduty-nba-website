@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Oct 12, 2026 — The terms cover the sync bonus
+
+Section 6 of the terms now says a player who watches on TV and syncs the app can earn bonus points for syncing, that the app explains when and how many, and that we may change the bonus or stop offering it. Section 4 now says the points we may take away from a cheating account include sync bonus points. The terms name no amounts, so the app stays the one place the numbers live. The bonus's server half went out this morning with its switch off, and these lines are in place before the switch goes on. The terms' date stays Oct 12, 2026.
+
 ## Oct 12, 2026 — The terms no longer mention logos
 
 Section 1 of the terms now says "All team names belong to their respective owners.", matching the footer, because the app and the site have shown no team logos since Oct 11. The terms already carried today's date from this morning's change, so it stays Oct 12, 2026.

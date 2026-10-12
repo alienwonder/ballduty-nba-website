@@ -76,8 +76,8 @@ export default function NextBucketTermsPage() {
       </ul>
       <p>
         We look at results after games for signs of this. If we&rsquo;re satisfied an account has
-        broken these rules, we may turn off TV sync for it, adjust or remove its points, or
-        suspend or close it.
+        broken these rules, we may turn off TV sync for it, adjust or remove its points
+        (including any bonus points for syncing), or suspend or close it.
       </p>
 
       <h2>5. Price</h2>
@@ -92,6 +92,11 @@ export default function NextBucketTermsPage() {
         <li>
           How calls are scored is explained in the app. Scoring uses official play-by-play data
           from our data provider, Sportradar.
+        </li>
+        <li>
+          If you watch on TV and sync the app to your TV picture, you can earn bonus points for
+          syncing. The app explains when you can earn them and how many. We may change the bonus
+          or stop offering it at any time.
         </li>
         <li>
           Live sports data sometimes changes after the fact. A basket can be withdrawn or
