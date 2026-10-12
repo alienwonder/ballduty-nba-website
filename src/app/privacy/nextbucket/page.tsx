@@ -9,12 +9,13 @@ export const metadata: Metadata = {
 
 // Written Oct 6, 2026 from what the app and its Cloud Functions actually store
 // (ballduty-nba repo: auth_service.dart, deleteMyData.js, contactForm.js,
-// setLeaderboardName.js, userFlags.js, leagues.js). When the app starts
+// setLeaderboardName.js, userFlags.js, leagues.js). Sync taps added Oct 12, 2026
+// from mobile_app/lib/services/sync_recorder.dart. When the app starts
 // collecting something new — purchases, ads, analytics, push notifications —
 // this page has to change before that release ships.
 export default function NextBucketPrivacyPage() {
   return (
-    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Oct 6, 2026">
+    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Oct 12, 2026">
       <p>
         This policy explains what the NextBucket app collects, why, who else handles it, and how
         to delete it. NextBucket is made by BallDuty Pty Ltd, an Australian company
@@ -46,6 +47,9 @@ export default function NextBucketPrivacyPage() {
         <li>
           <strong>TV sync.</strong> If you sync the app to a delayed TV picture, each call you make
           carries the delay your phone reported, so we can judge it against what you were watching.
+          The app also records each sync tap: which basket you synced to, when its card appeared
+          on your phone, and when you tapped. We use these records to check that TV sync is
+          accurate.
         </li>
         <li>
           <strong>Messages to support.</strong> If you use Contact support in the app, we keep

@@ -44,7 +44,7 @@ export default function Footer() {
 
         <p className="mt-8 text-xs leading-relaxed text-[var(--muted)] max-w-prose">
           NextBucket is an independent app. It is not affiliated with, endorsed by or sponsored by
-          any basketball league or team. All team names and logos belong to their respective owners.
+          any basketball league or team. All team names belong to their respective owners.
         </p>
       </div>
     </footer>

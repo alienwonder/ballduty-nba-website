@@ -13,6 +13,8 @@ export default function Wordmark({ size = "md" }: { size?: "md" | "lg" }) {
       >
         Next<span className="text-[var(--accent)]">Bucket</span>
       </span>
+      {/* Stacked visually; the space keeps the text "NextBucket by BallDuty"
+          for screen readers, copy and paste, and search results. */}{" "}
       <span
         className="text-white/60 font-semibold uppercase"
         style={{

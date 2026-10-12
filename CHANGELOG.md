@@ -1,5 +1,11 @@
 # Changelog — NextBucket website
 
+## Oct 12, 2026 — The privacy policy covers sync taps; footer and header fixes
+
+The privacy policy's TV sync section now says the app also records each sync tap: which basket the player synced to, when its card appeared on the phone, and when they tapped. We use these records to check that TV sync is accurate. The app has stored them since Oct 6 (`sync_recorder.dart`). The policy's date changed to Oct 12, 2026.
+
+The footer on every page now says "All team names belong to their respective owners." and no longer mentions logos, because the app and the site have shown no team logos since Oct 11. The header's wordmark now reads "NextBucket by BallDuty" to screen readers and search engines, where it used to run together as "NextBucketby BallDuty". It looks the same on screen.
+
 ## Oct 12, 2026 — "Basketball" instead of "NBA" on the home page
 
 The first of the four steps on the home page now says "a live basketball game", and so does the site's description, which search results show under the site's name. No page on the site names the NBA now. `CLAUDE.md` records the new policy addresses and the rule about not naming the NBA.
