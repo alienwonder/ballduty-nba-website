@@ -34,8 +34,8 @@ export default function NextBucketTermsPage() {
         </li>
         <li>
           <strong>It&rsquo;s independent.</strong> NextBucket is not affiliated with, endorsed by
-          or sponsored by any basketball league or team. All team names and logos belong to their
-          respective owners. Apple and Google are not sponsors of the game and are not involved
+          or sponsored by any basketball league or team. All team names belong to their respective
+          owners. Apple and Google are not sponsors of the game and are not involved
           in it.
         </li>
       </ul>
