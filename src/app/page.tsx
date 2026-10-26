@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Mark from "@/components/Mark";
 import Wordmark from "@/components/Wordmark";
@@ -8,7 +9,7 @@ import Wordmark from "@/components/Wordmark";
 const steps = [
   {
     title: "Watch the game. Call the next basket.",
-    body: "While you watch a live basketball game on TV, use your phone or tablet to call who will score the next field goal.",
+    body: "While you watch a live basketball game on TV or a stream, use your phone or tablet to call who will score the next field goal.",
   },
   {
     title: "Each basket, a new call",
@@ -21,6 +22,26 @@ const steps = [
   {
     title: "Play people you know",
     body: "The leaderboard ranks everyone who plays, and you can start a league for your friends, family or workmates and see how you stack up.",
+  },
+];
+
+// Both listings went live Oct 20, 2026. The App Store link has no country in it,
+// so Apple sends each visitor to their own country's store.
+// Badges are the official artwork, downloaded Oct 26, 2026 from Apple's marketing
+// toolbox and Google Play's badge page. Google's PNG ships with a 41px transparent
+// border, trimmed off so both badges can share one height; the artwork is unchanged.
+const stores = [
+  {
+    name: "Download on the App Store",
+    href: "https://apps.apple.com/app/id6759211498",
+    src: "/badges/app-store.svg",
+    width: 168,
+  },
+  {
+    name: "Get it on Google Play",
+    href: "https://play.google.com/store/apps/details?id=com.ballduty.app",
+    src: "/badges/google-play.png",
+    width: 188,
   },
 ];
 
@@ -38,11 +59,15 @@ export default function HomePage() {
             Call the next basket.
           </h1>
           <p className="text-lg sm:text-xl text-white/75 max-w-[600px] mx-auto">
-            A second-screen game for live basketball games. Watch on TV, and call who scores next on your phone.
+            A second-screen game for live basketball games. Watch on TV or a stream, and call who scores next on your phone.
           </p>
-          <p className="mt-10 inline-block rounded-full border border-[var(--accent)] px-5 py-2 text-sm font-semibold text-[var(--accent)]">
-            Coming soon to the App Store
-          </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {stores.map((s) => (
+              <a key={s.name} href={s.href} className="inline-block hover:opacity-90">
+                <Image src={s.src} alt={s.name} width={s.width} height={56} priority />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 

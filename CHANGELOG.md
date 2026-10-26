@@ -1,5 +1,13 @@
 # Changelog — NextBucket website
 
+## Oct 26, 2026 — The home page links to both stores
+
+The home page no longer says "Coming soon to the App Store", because NextBucket has been live on the App Store and Google Play since Oct 20. Apple's "Download on the App Store" badge and Google's "Get it on Google Play" badge take its place. They sit side by side on a computer and stack on a phone. The App Store link carries no country, so Apple sends each visitor to their own country's store. Both links were checked and open the NextBucket listing.
+
+The badges are the official artwork, saved in `public/badges/`. Apple's black SVG came from Apple's marketing toolbox, and Google's PNG came from Google Play's badge page. Google's PNG comes with a wide transparent border, which was trimmed off so the two badges can share one height. The badge itself is unchanged. Both load straight away rather than lazily, because they're on the first screen.
+
+The opening line now says "Watch on TV or a stream", and the first of the four steps says "on TV or a stream", because plenty of players watch the game streamed rather than on TV (Pete).
+
 ## Oct 12, 2026 — The site no longer names its data supplier
 
 The terms' scoring section now says scoring uses "play-by-play data from a commercial sports data provider", with no supplier named and no "official". The privacy policy no longer has the note under its list of services that named the supplier. We send the supplier no personal information, so it doesn't belong there. The TV sync section now says sync taps are used to check that TV sync is "accurate and fair". Both pages already carried today's date, so they stay Oct 12, 2026.
