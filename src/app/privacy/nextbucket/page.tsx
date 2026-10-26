@@ -10,12 +10,14 @@ export const metadata: Metadata = {
 // Written Oct 6, 2026 from what the app and its Cloud Functions actually store
 // (ballduty-nba repo: auth_service.dart, deleteMyData.js, contactForm.js,
 // setLeaderboardName.js, userFlags.js, leagues.js). Sync taps added Oct 12, 2026
-// from mobile_app/lib/services/sync_recorder.dart. When the app starts
-// collecting something new — purchases, ads, analytics, push notifications —
-// this page has to change before that release ships.
+// from mobile_app/lib/services/sync_recorder.dart. Adverts added Oct 26, 2026,
+// before build 1.2.0 (15) went to review, from stoppage_ad_service.dart and
+// ios/Runner/PrivacyInfo.xcprivacy. When the app starts collecting something
+// new — purchases, analytics, push notifications — this page has to change
+// before that release ships.
 export default function NextBucketPrivacyPage() {
   return (
-    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Oct 12, 2026">
+    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Oct 26, 2026">
       <p>
         This policy explains what the NextBucket app collects, why, who else handles it, and how
         to delete it. NextBucket is made by BallDuty Pty Ltd, an Australian company
@@ -52,6 +54,15 @@ export default function NextBucketPrivacyPage() {
           accurate and fair.
         </li>
         <li>
+          <strong>Adverts.</strong> The app shows adverts from Google AdMob during breaks in
+          play. To choose and measure them, Google&rsquo;s advertising software collects your
+          device&rsquo;s advertising identifier (if you allow it), a rough location worked out
+          from your IP address, which adverts you see and tap, and crash and performance details
+          from the advertising software itself. Google receives this directly. We don&rsquo;t
+          link it to your account, and we never send Google your email address, name or player
+          number.
+        </li>
+        <li>
           <strong>Messages to support.</strong> If you use Contact support in the app, we keep
           your message, its category, and the email address we reply to.
         </li>
@@ -63,9 +74,9 @@ export default function NextBucketPrivacyPage() {
         </li>
       </ul>
       <p>
-        We don&rsquo;t collect your location, contacts, photos or payment card details. The app
-        has no advertising, no ad tracking and no third-party analytics, and it doesn&rsquo;t sell
-        or share your data with advertisers.
+        Apart from the rough location Google&rsquo;s advertising software uses, we don&rsquo;t
+        collect your location, and we never collect your contacts, photos or payment card
+        details. The app has no third-party analytics beyond the advertising software.
       </p>
 
       <h2>2. How we use it</h2>
@@ -81,9 +92,28 @@ export default function NextBucketPrivacyPage() {
           including by Google&rsquo;s Gemini AI, to keep offensive names off the leaderboard. Only
           the name you typed is sent for that check.</li>
         <li>To answer you when you contact support.</li>
+        <li>To show adverts during breaks in play, which keeps the app free.</li>
       </ul>
 
-      <h2>3. Who else handles your data</h2>
+      <h2>3. Your choices about adverts</h2>
+      <ul>
+        <li><strong>iPhone and iPad.</strong> The first time you open a game, Apple asks whether
+          NextBucket may track you. If you choose &ldquo;Ask App Not to Track&rdquo;, Google
+          can&rsquo;t use your advertising identifier and the adverts aren&rsquo;t personalised.
+          You can change this at any time in Settings, then Privacy &amp; Security, then
+          Tracking.</li>
+        <li><strong>Android.</strong> You can delete or reset your advertising identifier in your
+          phone&rsquo;s Settings, under Google, then Ads (on some phones, Google, then All services, then Ads).</li>
+        <li><strong>European Union, the United Kingdom and Switzerland.</strong> The app asks for
+          your consent through Google&rsquo;s consent form before personalised adverts are shown.</li>
+      </ul>
+      <p>
+        Adverts appear whichever you choose, and the game works exactly the same. How Google uses
+        advertising data is explained at{" "}
+        <a href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.
+      </p>
+
+      <h2>4. Who else handles your data</h2>
       <div className="table-scroll">
         <table>
           <thead>
@@ -106,6 +136,10 @@ export default function NextBucketPrivacyPage() {
               <td>Let you sign in with your existing account, if you choose to</td>
             </tr>
             <tr>
+              <td>Google AdMob</td>
+              <td>Shows adverts in the app during breaks in play</td>
+            </tr>
+            <tr>
               <td>Resend</td>
               <td>Delivers your support messages to our inbox</td>
             </tr>
@@ -117,7 +151,7 @@ export default function NextBucketPrivacyPage() {
         </table>
       </div>
 
-      <h2>4. Where your data is kept</h2>
+      <h2>5. Where your data is kept</h2>
       <p>
         Our database and servers run on Google Cloud in the United States. If you live in
         Australia, the European Union, the United Kingdom or elsewhere, your data is transferred
@@ -125,18 +159,19 @@ export default function NextBucketPrivacyPage() {
         including the Standard Contractual Clauses recognised under the GDPR.
       </p>
 
-      <h2>5. How long we keep it</h2>
+      <h2>6. How long we keep it</h2>
       <ul>
         <li>Your account and play history: until you delete your account.</li>
         <li>Messages to support: 12 months, then deleted automatically. The support inbox also
           keeps a copy of the email, which we delete if you ask.</li>
         <li>Server logs: kept by Google and Vercel for their standard periods, then deleted.</li>
+        <li>Advertising data: kept by Google under its own policies. We don&rsquo;t hold a copy.</li>
       </ul>
 
-      <h2>6. Deleting your account</h2>
+      <h2>7. Deleting your account</h2>
       <p>
-        You can delete your account and data at any time in the app: open the menu and tap{" "}
-        <strong>Delete my data</strong>. It is also in Profile, under Settings.
+        You can delete your account and data at any time in the app: open the Profile tab, tap the
+        gear icon for Settings, and tap <strong>Delete my data</strong>.
       </p>
       <p>
         Deletion happens straight away and can&rsquo;t be undone. It removes your profile, email
@@ -152,7 +187,7 @@ export default function NextBucketPrivacyPage() {
         30 days.
       </p>
 
-      <h2>7. Your rights</h2>
+      <h2>8. Your rights</h2>
       <p>
         Wherever you live, you can ask us for a copy of your data, ask us to correct it, or ask us
         to delete it, by writing to{" "}
@@ -175,31 +210,32 @@ export default function NextBucketPrivacyPage() {
       </p>
       <p>
         <strong>California.</strong> You have the right to know what we collect, to have it
-        deleted, and not to be treated differently for asking. We don&rsquo;t sell or share
-        personal information as California law defines those terms.
+        deleted, and not to be treated differently for asking. We don&rsquo;t sell personal
+        information. Personalised adverts may count as &ldquo;sharing&rdquo; under California
+        law, and you can opt out of them with the choices in section 3.
       </p>
 
-      <h2>8. Children</h2>
+      <h2>9. Children</h2>
       <p>
         NextBucket is for people aged 16 and over. We don&rsquo;t knowingly collect data from
         anyone younger. If you think a child has an account, write to us and we&rsquo;ll delete it.
       </p>
 
-      <h2>9. Security</h2>
+      <h2>10. Security</h2>
       <p>
         Data travels encrypted between the app and our servers. Database rules mean each player
         can read only their own private account details, and our servers do the scoring, so
         nobody can change their points from the app.
       </p>
 
-      <h2>10. Changes to this policy</h2>
+      <h2>11. Changes to this policy</h2>
       <p>
         If we change what we collect or how we use it, we&rsquo;ll update this page and its date
         before the change reaches the app. If the change is significant, we&rsquo;ll also tell
         you in the app.
       </p>
 
-      <h2>11. Contact</h2>
+      <h2>12. Contact</h2>
       <p>
         Privacy questions: <a href="mailto:privacy@ballduty.com">privacy@ballduty.com</a>
         <br />
