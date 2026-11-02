@@ -12,12 +12,15 @@ export const metadata: Metadata = {
 // setLeaderboardName.js, userFlags.js, leagues.js). Sync taps added Oct 12, 2026
 // from mobile_app/lib/services/sync_recorder.dart. Adverts added Oct 26, 2026,
 // before build 1.2.0 (15) went to review, from stoppage_ad_service.dart and
-// ios/Runner/PrivacyInfo.xcprivacy. When the app starts collecting something
-// new — purchases, analytics, push notifications — this page has to change
+// ios/Runner/PrivacyInfo.xcprivacy. Crashlytics and Analytics added for build 18,
+// and Second Chances earned from adverts, pushed Nov 2, 2026 before 1.3.0 (19)
+// went to review, from the approved wording in the ballduty-nba repo's
+// Plans/2026-10-28-Privacy-Wording-Draft.md. When the app starts collecting
+// something new — purchases, push notifications — this page has to change
 // before that release ships.
 export default function NextBucketPrivacyPage() {
   return (
-    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Oct 26, 2026">
+    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Nov 2, 2026">
       <p>
         This policy explains what the NextBucket app collects, why, who else handles it, and how
         to delete it. NextBucket is made by BallDuty Pty Ltd, an Australian company
@@ -58,9 +61,28 @@ export default function NextBucketPrivacyPage() {
           play. To choose and measure them, Google&rsquo;s advertising software collects your
           device&rsquo;s advertising identifier (if you allow it), a rough location worked out
           from your IP address, which adverts you see and tap, and crash and performance details
-          from the advertising software itself. Google receives this directly. We don&rsquo;t
-          link it to your account, and we never send Google your email address, name or player
-          number.
+          from the advertising software itself. Google receives this directly. If you choose to
+          watch an advert to earn a Second Chance, the app also gives Google your account&rsquo;s
+          ID, a random code that isn&rsquo;t your email, name or player number. Google passes it
+          back to us when the advert finishes, so we can credit the right account, and we keep a
+          record of each of these adverts with your account: when it ran, how it ended and what
+          it earned. Apart from that, we don&rsquo;t link Google&rsquo;s advertising data to your
+          account, and we never send Google your email address, name or player number.
+        </li>
+        <li>
+          <strong>Crash reports and usage counts.</strong> We use Google&rsquo;s Firebase
+          Crashlytics to receive a report when the app crashes or hits an error. Each report says
+          what went wrong in the code, and includes your phone&rsquo;s model, its operating
+          system, its free memory and storage, the app&rsquo;s version, and a random ID for that
+          installation of the app. We use Firebase Analytics to count how the app is used, such as
+          how many people open it, how often and for how long. It records your phone&rsquo;s
+          model, operating system and language, the app&rsquo;s version, a random ID for that
+          installation, and the rough location Google works out from your IP address. Neither is
+          linked to your account, and neither uses your advertising identifier. Before a crash
+          report is sent, the app removes your account ID, email address and player number from
+          any error message. If Google&rsquo;s consent form asks for your consent (in the European
+          Union, the United Kingdom and Switzerland), Analytics stays off on your phone, whatever
+          you answer. Crash reports are still sent, so we can fix problems.
         </li>
         <li>
           <strong>Messages to support.</strong> If you use Contact support in the app, we keep
@@ -74,9 +96,9 @@ export default function NextBucketPrivacyPage() {
         </li>
       </ul>
       <p>
-        Apart from the rough location Google&rsquo;s advertising software uses, we don&rsquo;t
-        collect your location, and we never collect your contacts, photos or payment card
-        details. The app has no third-party analytics beyond the advertising software.
+        Apart from the rough location Google&rsquo;s advertising and analytics software works out
+        from your IP address, we don&rsquo;t collect your location, and we never collect your
+        contacts, photos or payment card details.
       </p>
 
       <h2>2. How we use it</h2>
@@ -92,6 +114,8 @@ export default function NextBucketPrivacyPage() {
           including by Google&rsquo;s Gemini AI, to keep offensive names off the leaderboard. Only
           the name you typed is sent for that check.</li>
         <li>To answer you when you contact support.</li>
+        <li>To find and fix crashes and errors, and to see how many people use the app and for
+          how long, so we can improve it.</li>
         <li>To show adverts during breaks in play, which keeps the app free.</li>
       </ul>
 
@@ -140,6 +164,10 @@ export default function NextBucketPrivacyPage() {
               <td>Shows adverts in the app during breaks in play</td>
             </tr>
             <tr>
+              <td>Google Firebase Crashlytics and Firebase Analytics</td>
+              <td>Crash reports, and counts of how the app is used</td>
+            </tr>
+            <tr>
               <td>Resend</td>
               <td>Delivers your support messages to our inbox</td>
             </tr>
@@ -165,7 +193,13 @@ export default function NextBucketPrivacyPage() {
         <li>Messages to support: 12 months, then deleted automatically. The support inbox also
           keeps a copy of the email, which we delete if you ask.</li>
         <li>Server logs: kept by Google and Vercel for their standard periods, then deleted.</li>
-        <li>Advertising data: kept by Google under its own policies. We don&rsquo;t hold a copy.</li>
+        <li>Crash reports: kept by Google for 90 days, then deleted.</li>
+        <li>Usage counts: Google keeps the detailed records for 2 months, the shortest period it
+          offers. Totals worked out from them, such as how many people used the app in a week,
+          are kept longer.</li>
+        <li>Advertising data: kept by Google under its own policies. Our record of adverts watched
+          for Second Chances stays with your account until you delete it, and our server logs
+          keep it for 30 days.</li>
       </ul>
 
       <h2>7. Deleting your account</h2>
@@ -175,9 +209,14 @@ export default function NextBucketPrivacyPage() {
       </p>
       <p>
         Deletion happens straight away and can&rsquo;t be undone. It removes your profile, email
-        address, calls, points, stats, game-winner picks, leaderboard name and player number,
-        support messages, and your place in every league. If you own a league, it passes to the
-        longest-standing member, and a league with nobody left in it is deleted.
+        address, calls, points, stats, game-winner picks, Second Chances and the record of
+        adverts watched for them, leaderboard name and player number, support messages, and your
+        place in every league. If you own a league, it passes to the longest-standing member, and
+        a league with nobody left in it is deleted.
+      </p>
+      <p>
+        Crash reports and usage counts aren&rsquo;t linked to your account, so there&rsquo;s
+        nothing in them we could find to delete. They expire as section 6 describes.
       </p>
       <p>
         The games themselves aren&rsquo;t personal data, so the record of what happened on court
