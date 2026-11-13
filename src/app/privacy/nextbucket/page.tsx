@@ -77,8 +77,8 @@ export default function NextBucketPrivacyPage() {
           when you signed up, whether you&rsquo;ve confirmed it, which games you asked about, and
           when you unsubscribe. The first email asks you to confirm the address, and we send
           nothing else to it until you do. To stop one person signing up someone else&rsquo;s
-          address over and over, our servers also briefly keep the IP address each sign-up came
-          from.
+          address over and over, our servers also keep the IP address each sign-up came from for
+          24 hours, then delete it.
         </li>
         <li>
           <strong>TV sync.</strong> If you sync the app to a delayed TV picture, each call you make
@@ -232,7 +232,8 @@ export default function NextBucketPrivacyPage() {
         <li>Fan Battle emails: we keep your address on the list until you unsubscribe or delete
           your account. After you unsubscribe, we keep the address and the date you did, only so
           we never email it again by mistake. An address signed up on this website that
-          isn&rsquo;t confirmed within 7 days is deleted.</li>
+          isn&rsquo;t confirmed within 7 days is deleted. The IP address a website sign-up came
+          from is deleted after 24 hours.</li>
         <li>Messages to support: 12 months, then deleted automatically. The support inbox also
           keeps a copy of the email, which we delete if you ask.</li>
         <li>Server logs: kept by Google and Vercel for their standard periods, then deleted.</li>

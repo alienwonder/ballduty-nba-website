@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Nov 13, 2026 — Pete approved the Fan Battle privacy wording (not live)
+
+Pete approved the privacy policy draft below on Nov 13, 2026, including "Deleted player" on published results and 7 days for unconfirmed website sign-ups. He chose 24 hours for keeping the IP address of a website sign-up, so the policy now says 24 hours where it said "briefly", and the "How long we keep it" section says so too. The date at the top is still Nov 13, 2026, and it changes to the day this goes live.
+
 ## Nov 13, 2026 — Privacy policy draft for Fan Battles (waiting for Pete, not live)
 
 The NextBucket privacy policy now covers the three things plan section 8a found missing. The side a player backs in a Fan Battle is recorded, and the Results page publishes each side's top 10 with their leaderboard name, side and points. Fan Battle emails are optional, and when a player turns on the app's switch they go to the email address the player signed in with. People can also sign up on the website without an account, and the policy says what we keep about them. It also says that deleting an account removes the player's name from published results ("Deleted player"), that unconfirmed website sign-ups are deleted after 7 days, and that Resend sends sign-in codes as well as support messages. The date is Nov 13, 2026, and it changes to the day this goes live. Pete has to approve the wording, and it has to be live before app build 21 is submitted.
