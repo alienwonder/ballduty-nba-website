@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Nov 13, 2026 — Fan Battle pages and privacy policy go live
+
+Pete said yes to putting the Fan Battle work live on Nov 13, 2026, so `fan-battle-website` is merged into `main` and deployed to ballduty.com. That covers the three entries below. The privacy policy's date is Nov 13, 2026. Until the server writes `fan-battle.json`, the home page says the next Fan Battle is coming soon and the Results page says no Fan Battles have been played yet.
+
 ## Nov 13, 2026 — Pete approved the Fan Battle privacy wording (not live)
 
 Pete approved the privacy policy draft below on Nov 13, 2026, including "Deleted player" on published results and 7 days for unconfirmed website sign-ups. He chose 24 hours for keeping the IP address of a website sign-up, so the policy now says 24 hours where it said "briefly", and the "How long we keep it" section says so too. The date at the top is still Nov 13, 2026, and it changes to the day this goes live.
