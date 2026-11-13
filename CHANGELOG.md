@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Nov 13, 2026 — Privacy policy draft for Fan Battles (waiting for Pete, not live)
+
+The NextBucket privacy policy now covers the three things plan section 8a found missing. The side a player backs in a Fan Battle is recorded, and the Results page publishes each side's top 10 with their leaderboard name, side and points. Fan Battle emails are optional, and when a player turns on the app's switch they go to the email address the player signed in with. People can also sign up on the website without an account, and the policy says what we keep about them. It also says that deleting an account removes the player's name from published results ("Deleted player"), that unconfirmed website sign-ups are deleted after 7 days, and that Resend sends sign-in codes as well as support messages. The date is Nov 13, 2026, and it changes to the day this goes live. Pete has to approve the wording, and it has to be live before app build 21 is submitted.
+
 ## Nov 13, 2026 — Fan Battle pages (not live)
 
 Fan Battle is now the home page, built from section 3 of the plan in the app repo (`Plans/2026-11-13-Fan-Battle-Plan.md`). The menu reads Fan Battle, Results, How to play and Support, with an orange "Get the app" button. On a phone the links get their own row under the wordmark, so they stay visible.

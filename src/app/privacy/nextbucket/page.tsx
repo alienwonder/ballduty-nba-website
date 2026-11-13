@@ -15,12 +15,16 @@ export const metadata: Metadata = {
 // ios/Runner/PrivacyInfo.xcprivacy. Crashlytics and Analytics added for build 18,
 // and Second Chances earned from adverts, pushed Nov 2, 2026 before 1.3.0 (19)
 // went to review, from the approved wording in the ballduty-nba repo's
-// Plans/2026-10-28-Privacy-Wording-Draft.md. When the app starts collecting
+// Plans/2026-10-28-Privacy-Wording-Draft.md. Fan Battles (the side a player
+// backs, published results, Fan Battle emails, and website sign-ups without an
+// account) added Nov 13, 2026 from plan section 8a in the ballduty-nba repo's
+// Plans/2026-11-13-Fan-Battle-Plan.md, to be live before build 21 goes to
+// review. When the app starts collecting
 // something new — purchases, push notifications — this page has to change
 // before that release ships.
 export default function NextBucketPrivacyPage() {
   return (
-    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Nov 2, 2026">
+    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Nov 13, 2026">
       <p>
         This policy explains what the NextBucket app collects, why, who else handles it, and how
         to delete it. NextBucket is made by BallDuty Pty Ltd, an Australian company
@@ -40,14 +44,41 @@ export default function NextBucketPrivacyPage() {
           <strong>Your leaderboard identity.</strong> Every account gets a permanent player number,
           such as BD047382, and you can choose a leaderboard name. Your leaderboard name, player
           number, rank and points are public: anyone using the app can see them, and they may also
-          appear on leaderboards on this website. Your email address and sign-in name are never
-          shown to other players.
+          appear on leaderboards and Fan Battle results on this website. Your email address and
+          sign-in name are never shown to other players or published.
         </li>
         <li>
           <strong>Your play.</strong> The calls you make in each game, when you made them, how they
           were scored, your points and stats, your game-winner picks, and the leagues you belong
           to. Other members of a league can see your leaderboard name, number and points in that
           league.
+        </li>
+        <li>
+          <strong>Fan Battles.</strong> A Fan Battle is a game where fans of the two teams play
+          against each other. If you back a side in a Fan Battle, we record which side you backed
+          and when. After the game, the Results page on this website publishes the top 10 players
+          on each side, with their leaderboard name (or player number), the side they backed and
+          their Fan Battle points, and the app shows the same to other players. If you&rsquo;re
+          not in your side&rsquo;s top 10, only the number of fans on each side is published,
+          not who they are.
+        </li>
+        <li>
+          <strong>Fan Battle emails.</strong> These are optional, and off unless you turn them on.
+          If you turn on &ldquo;Email me about Fan Battles&rdquo; in the app, we send them to the
+          email address you signed in with (if you hid your email from us with Apple, that&rsquo;s
+          the relay address Apple gave us). We keep a record that you turned them on, when, and
+          which games you asked to be reminded about. You get a weekly email with results and
+          the coming Fan Battles, a reminder before games you asked about, and the result of
+          games you played.
+        </li>
+        <li>
+          <strong>Signing up on this website.</strong> You can also ask for Fan Battle emails on
+          this website without having a NextBucket account. Then we keep only your email address,
+          when you signed up, whether you&rsquo;ve confirmed it, which games you asked about, and
+          when you unsubscribe. The first email asks you to confirm the address, and we send
+          nothing else to it until you do. To stop one person signing up someone else&rsquo;s
+          address over and over, our servers also briefly keep the IP address each sign-up came
+          from.
         </li>
         <li>
           <strong>TV sync.</strong> If you sync the app to a delayed TV picture, each call you make
@@ -114,6 +145,10 @@ export default function NextBucketPrivacyPage() {
           including by Google&rsquo;s Gemini AI, to keep offensive names off the leaderboard. Only
           the name you typed is sent for that check.</li>
         <li>To answer you when you contact support.</li>
+        <li>To run Fan Battles: count each side&rsquo;s fans and points, and publish the result.</li>
+        <li>To send Fan Battle emails, only if you&rsquo;ve asked for them. Every one says why you
+          got it and has a link that stops all of them in one tap. Turning the switch off in the
+          app does the same.</li>
         <li>To find and fix crashes and errors, and to see how many people use the app and for
           how long, so we can improve it.</li>
         <li>To show adverts during breaks in play, which keeps the app free.</li>
@@ -169,7 +204,8 @@ export default function NextBucketPrivacyPage() {
             </tr>
             <tr>
               <td>Resend</td>
-              <td>Delivers your support messages to our inbox</td>
+              <td>Sends sign-in codes and Fan Battle emails, and delivers your support messages to
+                our inbox</td>
             </tr>
             <tr>
               <td>Vercel</td>
@@ -189,7 +225,14 @@ export default function NextBucketPrivacyPage() {
 
       <h2>6. How long we keep it</h2>
       <ul>
-        <li>Your account and play history: until you delete your account.</li>
+        <li>Your account and play history, including the sides you backed in Fan Battles: until
+          you delete your account.</li>
+        <li>Published Fan Battle results: kept on this website as a record of each game. If you
+          delete your account, your name comes off them, as section 7 explains.</li>
+        <li>Fan Battle emails: we keep your address on the list until you unsubscribe or delete
+          your account. After you unsubscribe, we keep the address and the date you did, only so
+          we never email it again by mistake. An address signed up on this website that
+          isn&rsquo;t confirmed within 7 days is deleted.</li>
         <li>Messages to support: 12 months, then deleted automatically. The support inbox also
           keeps a copy of the email, which we delete if you ask.</li>
         <li>Server logs: kept by Google and Vercel for their standard periods, then deleted.</li>
@@ -210,8 +253,10 @@ export default function NextBucketPrivacyPage() {
       <p>
         Deletion happens straight away and can&rsquo;t be undone. It removes your profile, email
         address, calls, points, stats, game-winner picks, Second Chances and the record of
-        adverts watched for them, leaderboard name and player number, support messages, and your
-        place in every league. If you own a league, it passes to the longest-standing member, and
+        adverts watched for them, leaderboard name and player number, support messages, the sides
+        you backed in Fan Battles and your Fan Battle email choices, and your place in every
+        league. On published Fan Battle results, your name is replaced with &ldquo;Deleted
+        player&rdquo;, so the totals still add up but nobody can tell it was you. If you own a league, it passes to the longest-standing member, and
         a league with nobody left in it is deleted.
       </p>
       <p>
@@ -244,6 +289,9 @@ export default function NextBucketPrivacyPage() {
         <strong>European Union and United Kingdom.</strong> We process your account and play data
         because it&rsquo;s needed to provide the game you signed up for. We check names, keep the
         game fair and answer support messages because we have a legitimate interest in doing so.
+        We publish Fan Battle results because they&rsquo;re part of the game you chose to play.
+        We send Fan Battle emails only with your consent, and you can withdraw it at any time with
+        the link in any email.
         You can also object to processing, ask us to restrict it, ask for your data in a portable
         format, and complain to your local data protection authority.
       </p>
@@ -256,8 +304,8 @@ export default function NextBucketPrivacyPage() {
 
       <h2>9. Children</h2>
       <p>
-        NextBucket is for people aged 16 and over. We don&rsquo;t knowingly collect data from
-        anyone younger. If you think a child has an account, write to us and we&rsquo;ll delete it.
+        NextBucket and its Fan Battle emails are for people aged 16 and over. We don&rsquo;t
+        knowingly collect data from anyone younger. If you think a child has an account, write to us and we&rsquo;ll delete it.
       </p>
 
       <h2>10. Security</h2>
