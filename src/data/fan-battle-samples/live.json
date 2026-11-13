@@ -1,0 +1,391 @@
+{
+  "updatedAt": "2026-11-22T01:41:30Z",
+  "games": [
+    {
+      "gameId": "espn-401810245",
+      "scheduled": "2026-11-22T00:30:00Z",
+      "state": "live",
+      "away": {
+        "code": "POR",
+        "name": "Portland Trail Blazers"
+      },
+      "home": {
+        "code": "NYK",
+        "name": "New York Knicks"
+      },
+      "clock": {
+        "period": 3,
+        "display": "5:32"
+      },
+      "fans": {
+        "POR": 19,
+        "NYK": 23
+      },
+      "best10": {
+        "POR": 1404,
+        "NYK": 1522
+      },
+      "top": {
+        "POR": [
+          {
+            "name": "RipCityRay",
+            "points": 225
+          },
+          {
+            "name": "Player BD047382",
+            "points": 185
+          },
+          {
+            "name": "MSG_Mike",
+            "points": 170
+          },
+          {
+            "name": "Player BD051190",
+            "points": 155
+          },
+          {
+            "name": "CourtsideKat",
+            "points": 140
+          },
+          {
+            "name": "BucketGetter",
+            "points": 140
+          },
+          {
+            "name": "Player BD039917",
+            "points": 125
+          },
+          {
+            "name": "DeepThreeDee",
+            "points": 100
+          },
+          {
+            "name": "Player BD060231",
+            "points": 100
+          },
+          {
+            "name": "GardenGirl",
+            "points": 64
+          }
+        ],
+        "NYK": [
+          {
+            "name": "Player BD044810",
+            "points": 245
+          },
+          {
+            "name": "Rose City Rob",
+            "points": 200
+          },
+          {
+            "name": "Player BD058822",
+            "points": 185
+          },
+          {
+            "name": "BaselineBen",
+            "points": 165
+          },
+          {
+            "name": "Player BD049003",
+            "points": 150
+          },
+          {
+            "name": "NoLookNat",
+            "points": 150
+          },
+          {
+            "name": "Player BD062214",
+            "points": 135
+          },
+          {
+            "name": "TipOffTom",
+            "points": 105
+          },
+          {
+            "name": "Player BD041776",
+            "points": 105
+          },
+          {
+            "name": "SwishSam",
+            "points": 82
+          }
+        ]
+      },
+      "winner": null
+    },
+    {
+      "gameId": "espn-401810262",
+      "scheduled": "2026-11-23T01:30:00Z",
+      "state": "upcoming",
+      "away": {
+        "code": "BOS",
+        "name": "Boston Celtics"
+      },
+      "home": {
+        "code": "GSW",
+        "name": "Golden State Warriors"
+      },
+      "clock": null,
+      "fans": {
+        "BOS": 6,
+        "GSW": 9
+      },
+      "best10": {
+        "BOS": 0,
+        "GSW": 0
+      },
+      "top": {
+        "BOS": [],
+        "GSW": []
+      },
+      "winner": null
+    },
+    {
+      "gameId": "espn-401810290",
+      "scheduled": "2026-11-25T01:00:00Z",
+      "state": "upcoming",
+      "away": {
+        "code": "MIA",
+        "name": "Miami Heat"
+      },
+      "home": {
+        "code": "CHI",
+        "name": "Chicago Bulls"
+      },
+      "clock": null,
+      "fans": {
+        "MIA": 2,
+        "CHI": 0
+      },
+      "best10": {
+        "MIA": 0,
+        "CHI": 0
+      },
+      "top": {
+        "MIA": [],
+        "CHI": []
+      },
+      "winner": null
+    }
+  ],
+  "results": [
+    {
+      "gameId": "espn-401810188",
+      "scheduled": "2026-11-18T03:00:00Z",
+      "state": "final",
+      "away": {
+        "code": "LAL",
+        "name": "Los Angeles Lakers"
+      },
+      "home": {
+        "code": "GSW",
+        "name": "Golden State Warriors"
+      },
+      "clock": null,
+      "fans": {
+        "LAL": 31,
+        "GSW": 27
+      },
+      "best10": {
+        "LAL": 2214,
+        "GSW": 2051
+      },
+      "top": {
+        "LAL": [
+          {
+            "name": "RipCityRay",
+            "points": 355
+          },
+          {
+            "name": "Player BD047382",
+            "points": 290
+          },
+          {
+            "name": "MSG_Mike",
+            "points": 265
+          },
+          {
+            "name": "Player BD051190",
+            "points": 245
+          },
+          {
+            "name": "CourtsideKat",
+            "points": 220
+          },
+          {
+            "name": "BucketGetter",
+            "points": 220
+          },
+          {
+            "name": "Player BD039917",
+            "points": 200
+          },
+          {
+            "name": "DeepThreeDee",
+            "points": 155
+          },
+          {
+            "name": "Player BD060231",
+            "points": 155
+          },
+          {
+            "name": "GardenGirl",
+            "points": 109
+          }
+        ],
+        "GSW": [
+          {
+            "name": "Player BD044810",
+            "points": 330
+          },
+          {
+            "name": "Rose City Rob",
+            "points": 265
+          },
+          {
+            "name": "Player BD058822",
+            "points": 245
+          },
+          {
+            "name": "BaselineBen",
+            "points": 225
+          },
+          {
+            "name": "Player BD049003",
+            "points": 205
+          },
+          {
+            "name": "NoLookNat",
+            "points": 205
+          },
+          {
+            "name": "Player BD062214",
+            "points": 185
+          },
+          {
+            "name": "TipOffTom",
+            "points": 145
+          },
+          {
+            "name": "Player BD041776",
+            "points": 145
+          },
+          {
+            "name": "SwishSam",
+            "points": 101
+          }
+        ]
+      },
+      "winner": "LAL"
+    },
+    {
+      "gameId": "espn-401810131",
+      "scheduled": "2026-11-15T00:30:00Z",
+      "state": "final",
+      "away": {
+        "code": "BOS",
+        "name": "Boston Celtics"
+      },
+      "home": {
+        "code": "PHI",
+        "name": "Philadelphia 76ers"
+      },
+      "clock": null,
+      "fans": {
+        "BOS": 22,
+        "PHI": 18
+      },
+      "best10": {
+        "BOS": 1640,
+        "PHI": 1712
+      },
+      "top": {
+        "BOS": [
+          {
+            "name": "RipCityRay",
+            "points": 260
+          },
+          {
+            "name": "Player BD047382",
+            "points": 215
+          },
+          {
+            "name": "MSG_Mike",
+            "points": 195
+          },
+          {
+            "name": "Player BD051190",
+            "points": 180
+          },
+          {
+            "name": "CourtsideKat",
+            "points": 165
+          },
+          {
+            "name": "BucketGetter",
+            "points": 165
+          },
+          {
+            "name": "Player BD039917",
+            "points": 150
+          },
+          {
+            "name": "DeepThreeDee",
+            "points": 115
+          },
+          {
+            "name": "Player BD060231",
+            "points": 115
+          },
+          {
+            "name": "GardenGirl",
+            "points": 80
+          }
+        ],
+        "PHI": [
+          {
+            "name": "Player BD044810",
+            "points": 275
+          },
+          {
+            "name": "Rose City Rob",
+            "points": 225
+          },
+          {
+            "name": "Player BD058822",
+            "points": 205
+          },
+          {
+            "name": "BaselineBen",
+            "points": 190
+          },
+          {
+            "name": "Player BD049003",
+            "points": 170
+          },
+          {
+            "name": "NoLookNat",
+            "points": 170
+          },
+          {
+            "name": "Player BD062214",
+            "points": 155
+          },
+          {
+            "name": "TipOffTom",
+            "points": 120
+          },
+          {
+            "name": "Player BD041776",
+            "points": 120
+          },
+          {
+            "name": "SwishSam",
+            "points": 82
+          }
+        ]
+      },
+      "winner": "PHI"
+    }
+  ]
+}

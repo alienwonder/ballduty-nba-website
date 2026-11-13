@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["https://www.ballduty.com", "https://ballduty.com"],
+    "method": ["GET", "HEAD"],
+    "responseHeader": ["Content-Type"],
+    "maxAgeSeconds": 3600
+  }
+]

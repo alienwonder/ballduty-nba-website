@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { GetAppProvider } from "@/components/GetAppPanel";
+import { sampleName } from "@/lib/fanBattleSource";
 
 export const metadata: Metadata = {
   title: {
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | NextBucket",
   },
   description:
-    "NextBucket by BallDuty: watch a live basketball game and call who scores the next basket. The earlier you call it, the more it pays.",
+    "NextBucket by BallDuty: watch a live NBA game and call who scores the next basket. The earlier you call it, the more it pays.",
   metadataBase: new URL("https://ballduty.com"),
   openGraph: {
     siteName: "NextBucket by BallDuty",
@@ -26,12 +28,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const sample = sampleName();
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <GetAppProvider>
+          {sample && (
+            // Local and preview builds only (src/lib/fanBattleSource.ts).
+            <p className="bg-yellow-300 text-black text-center text-sm font-semibold py-1.5 px-4">
+              Sample data ({sample}). These aren&rsquo;t real Fan Battles.
+            </p>
+          )}
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </GetAppProvider>
       </body>
     </html>
   );

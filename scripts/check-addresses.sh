@@ -31,7 +31,7 @@ PATHS=(
   /humans-vs-agents/transparency
   /wc26 /wc26/club-pass-promo /faq /about /pricing
 )
-NEXTBUCKET_PATHS=(/ /privacy/nextbucket /terms/nextbucket)
+NEXTBUCKET_PATHS=(/ /results /how-to-play /privacy/nextbucket /terms/nextbucket)
 # The policies' first addresses, which now forward to the ones above.
 OLD_POLICY_PATHS=(/privacy/nba /terms/nba)
 

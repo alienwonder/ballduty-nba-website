@@ -29,8 +29,11 @@ after any deploy that touches routes. Three things must always stay true:
   and `/terms/nextbucket`, and those are what the NextBucket app and its store listings link
   to. They were at `/privacy/nba` and `/terms/nba` until Oct 12, 2026, and those addresses
   forward to the new ones, so keep the forwarding in `next.config.ts`.
-- Pete wants no mention of the NBA on the site's pages (Oct 12, 2026). Say "basketball", and
-  word the independence line as "any basketball league or team".
+- On Nov 13, 2026 Pete decided the website sells the NBA side hard, with team names, players
+  and the league, and accepts that risk, so don't argue it. This replaces his Oct 12 rule of no
+  NBA mention. The app stays careful and never mentions the NBA, and both store listings link
+  here, so a reviewer can land on the site. The footer's and the terms' independence line
+  still says "any basketball league or team", and the site still never names its data supplier.
 - `public/app-ads.txt` stays at the root, word for word. AdMob checks it for the WC26 app's ads.
 - Addresses this site will reuse later (`/rules`, `/leaderboard`, `/faq`, `/about`, `/pricing`)
   forward with temporary redirects, because browsers remember permanent ones.
@@ -52,6 +55,25 @@ links on light backgrounds use `--accent-ink`. Colours are CSS variables in `glo
 ## Change tracking
 
 Update `CHANGELOG.md` before every commit.
+
+## Fan Battle (Nov 13, 2026)
+
+The home page is the Fan Battle page, built from the plan
+`ballduty-nba/docs/Claude Code - Era/Plans/2026-11-13-Fan-Battle-Plan.md` (section 3). The site
+never reads Firestore. Every Fan Battle page reads one public file,
+`ballduty-nba-schedule/fan-battle.json`, which the server writes (`src/lib/fanBattle.ts` holds
+its shape). The site never records a side, because only the app can tie a side to a real player.
+While a game is on, the home page re-fetches the file from the browser every 25 seconds, which
+needs the bucket's CORS rule (`scripts/fan-battle-cors.json`).
+
+Before the server writes the file, work against the samples:
+
+```
+FAN_BATTLE_SAMPLE=upcoming npm run dev    # or live, final, none
+```
+
+The production site ignores that setting. The shared checklist for all Fan Battle work is
+`ballduty-nba/FAN_BATTLE_CHECKLIST.md`, and section 4 is the website's.
 
 ## Running it
 

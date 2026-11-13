@@ -1,5 +1,23 @@
 # Changelog — NextBucket website
 
+## Nov 13, 2026 — Fan Battle pages (not live)
+
+Fan Battle is now the home page, built from section 3 of the plan in the app repo (`Plans/2026-11-13-Fan-Battle-Plan.md`). The menu reads Fan Battle, Results, How to play and Support, with an orange "Get the app" button. On a phone the links get their own row under the wordmark, so they stay visible.
+
+The top of the home page shows the next Fan Battle in three states. Before the game it names the two fanbases ("Blazers fans v Knicks fans"), the start time in the visitor's own time zone, each side's fan count and a Back button for each side. During the game it shows "Live now" with the quarter and clock, a bar comparing the two best-10 totals, and "Join in the app". After the game it shows the result line ("Blazers fans win", "Best 10: 1,902 to 1,876, outnumbered 23 to 19"), both sides' top three, and the next Fan Battle underneath. Below that come the week's other Fan Battles, the last result with its top three, two lines for newcomers and the store badges. With no Fan Battle in the file, the page says the next one is coming soon.
+
+Tapping Back opens a panel: "You're backing NYK. Get NextBucket and tap Back NYK on the game at the top." It slides up from the bottom on a phone and shows that phone's store. On a computer it shows a QR code and both badges. The QR code points at the new address `/get`, which sends an iPhone to the App Store, an Android phone to Google Play, and anything else to the home page's badges. The site never records a side, and the panel says so. The email box comes after the first Fan Battle, and the panel has a marked place for it.
+
+The Results page lists every Fan Battle, newest first, with wins by fanbase at the top, and each game has its own page with both sides' top 10 and the turnout. That's the page posted back to Reddit, so its title is the result. Both pages, the panel and How to play say that results are published with players' leaderboard names.
+
+How to play is a new page. It has the four steps that used to be the home page, and the Fan Battle rules from section 2 of the plan.
+
+All of it reads one public file, `fan-battle.json` in the `ballduty-nba-schedule` bucket, which the server will write. The site never reads Firestore. Pages are rebuilt with a fresh copy at most every 30 seconds, and while a game is on, or starts within the hour, the browser fetches the file itself every 25 seconds. That needs a CORS rule on the bucket, which is written in `scripts/fan-battle-cors.json` and waiting for Pete's go-ahead. Until then, the page updates only when it's reloaded. Three sample files in `src/data/fan-battle-samples/` stand in for the real file on a computer (`FAN_BATTLE_SAMPLE=live npm run dev`), and the production site ignores them.
+
+The site now names the NBA, its teams and the league on the Fan Battle pages, because Pete decided on Nov 13 to sell that side hard on the website. `CLAUDE.md` records the change. Team colours and nicknames are copied from the app. The footer and the terms keep their wording.
+
+`qrcode` is a new development tool, used once by `scripts/make-qr.mjs` to make `public/get-the-app-qr.svg`. The live site doesn't load it. `scripts/check-addresses.sh` now checks `/results` and `/how-to-play` too.
+
 ## Oct 26, 2026 — The home page links to both stores
 
 The home page no longer says "Coming soon to the App Store", because NextBucket has been live on the App Store and Google Play since Oct 20. Apple's "Download on the App Store" badge and Google's "Get it on Google Play" badge take its place. They sit side by side on a computer and stack on a phone. The App Store link carries no country, so Apple sends each visitor to their own country's store. Both links were checked and open the NextBucket listing.

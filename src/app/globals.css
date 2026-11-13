@@ -116,3 +116,25 @@ body {
 .table-scroll {
   overflow-x: auto;
 }
+
+/* ─── The Back panel (GetAppPanel.tsx) ───────────────────────────────────── */
+/* Slides up from the bottom on a phone, and fades in on a computer. */
+.get-app-panel[open] {
+  animation: panel-up 0.25s ease-out;
+}
+@media (min-width: 640px) {
+  .get-app-panel[open] {
+    animation: panel-in 0.2s ease-out;
+  }
+}
+@keyframes panel-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes panel-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .get-app-panel[open] { animation: none; }
+}
