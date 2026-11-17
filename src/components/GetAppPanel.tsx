@@ -189,3 +189,22 @@ export function BackButton({
     </button>
   );
 }
+
+/**
+ * The Back button on the home page's poster: white, with the team's poster
+ * colour as its text, so it reads on that team's half. `colour` always has
+ * enough contrast with white (posterColours in teams.ts makes sure of it).
+ */
+export function PosterBackButton({ code, label, colour }: { code: string; label: string; colour: string }) {
+  const open = useContext(OpenPanel);
+  return (
+    <button
+      type="button"
+      onClick={() => open({ kind: "back", code })}
+      className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-white px-3 sm:px-5 h-11 sm:h-12 font-condensed font-black uppercase tracking-wide text-[15px] sm:text-lg hover:bg-white/90 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] transition-colors"
+      style={{ color: colour }}
+    >
+      {label}
+    </button>
+  );
+}

@@ -1,0 +1,7 @@
+{
+  "_about": "The headline and one line for each Fan Battle, keyed by gameId. CC drafts them from the news before each battle, Pete approves, and they go live with the next deploy. A game with no entry uses the plain wording in src/lib/headlines.ts. Keep to trash talk, form and injuries from a named news source, and never anything about a player's private life.",
+  "espn-401810245": {
+    "headline": "SAMPLE: Portland says the Garden is just another gym. New York says come and find out.",
+    "line": "SAMPLE: written for the sample files only. Replace with a real, approved line before Portland's first real Fan Battle."
+  }
+}

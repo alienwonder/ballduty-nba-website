@@ -73,6 +73,28 @@ export function sideColours(awayCode: string, homeCode: string): [string, string
   return [away, home];
 }
 
+/**
+ * The colours for the two halves of the home page's poster, where each half
+ * is filled with its team's colour and carries white text. Each side uses its
+ * main colour unless white is hard to read on it (the Spurs' silver), when it
+ * uses its second colour, and failing that the site's near-black. If the two
+ * halves look alike, the home side tries its second colour, then near-black.
+ * Also returns a shadow colour for each side's big letters.
+ */
+export function posterColours(awayCode: string, homeCode: string): { fill: [string, string]; shadow: [string, string] } {
+  const awayTeam = TEAMS[awayCode] ?? FALLBACK;
+  const homeTeam = TEAMS[homeCode] ?? FALLBACK;
+  const fillFor = (team: Team, avoid?: string) =>
+    [team.primary, team.accent, NIGHT].find(
+      (c) => contrast(c, "#FFFFFF") >= 3 && (!avoid || !alike(avoid, c)),
+    ) ?? NIGHT;
+  const away = fillFor(awayTeam);
+  const home = fillFor(homeTeam, away);
+  const shadowFor = (team: Team, fill: string) =>
+    [team.accent, team.primary].find((c) => c !== fill && !alike(c, fill)) ?? "#000000";
+  return { fill: [away, home], shadow: [shadowFor(awayTeam, away), shadowFor(homeTeam, home)] };
+}
+
 function onDark(team: Team): string {
   return contrast(team.primary, NIGHT) >= 2 ? team.primary : team.accent;
 }

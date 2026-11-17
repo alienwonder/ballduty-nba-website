@@ -1,5 +1,17 @@
 # Changelog — NextBucket website
 
+## Nov 17, 2026 — The home page's top section becomes a fight poster (branch `fan-battle-poster`, not live)
+
+Pete felt the home page looked neat but AI-made, and too quiet for people arriving from NBA subreddits. He also noticed the top of the page could show a result like "It's a tie, 1 PHX fan and 0 DEN fans", which makes the whole site look empty. Pete approved the mock-up on Nov 17, 2026, and this builds it.
+
+Before and during a game, the top of the home page is now a poster. A big slanted headline sits above a block split down a half-court line, in each team's colours, with each team's code in huge letters. Before tip-off each half has a white "Back the Knicks" button, which opens the same Back panel as before. Under that, a tug-of-war bar shows how many fans each side has. During the game the bar becomes the best-10 bar, with "Join in the app". After the game the result shows as it did before. The smaller cards for the week's other Fan Battles get a strip in the two teams' colours.
+
+The headline and its one line come from a new file, `src/data/fan-battle-headlines.json`, keyed by game ID. CC drafts them from the news before each Fan Battle, Pete approves them, and they go live with the next deploy, which is the approval step. A game with no entry gets plain wording such as "Knicks fans against Raptors fans." Entries starting with "SAMPLE:" only show with the sample files, and the production site drops them (`src/lib/headlines.ts`). That check runs on the server, because the browser can't tell which site it's on.
+
+Quiet games no longer make the site look empty. Until a game has 20 fans across both sides (`ENOUGH_FANS` in `src/lib/fanBattle.ts`), the poster says "Sides just opened. Be one of the first to back yours." instead of showing counts, and the smaller cards leave the counts out. A finished game with fewer than 20 fans isn't put at the top or in "Last result", though the Results pages still list it.
+
+New: `posterColours` in `src/lib/teams.ts` picks each half's colour so white text reads on it (the Spurs' silver falls back to their black), and moves the home side off a colour that looks like the away side's. Barlow Condensed now loads in italic too. Checked locally on the upcoming and live samples and on the real file, on a phone and a computer, with no sideways scrolling, and the Back panel still opens.
+
 ## Nov 13, 2026 — Fan Battle pages and privacy policy go live
 
 Pete said yes to putting the Fan Battle work live on Nov 13, 2026, so `fan-battle-website` is merged into `main` and deployed to ballduty.com. That covers the three entries below. The privacy policy's date is Nov 13, 2026. Until the server writes `fan-battle.json`, the home page says the next Fan Battle is coming soon and the Results page says no Fan Battles have been played yet.

@@ -129,16 +129,19 @@ export type HomeLayout = {
  * The top card is a live game if there is one. Otherwise it's a game that has
  * just finished, which the server keeps in `games` for a day or two, with the
  * next Fan Battle underneath. Otherwise it's the next game to start.
+ *
+ * A finished game only goes at the top, or in "Last result", when it had
+ * enough fans (`ENOUGH_FANS`). A quiet one is left to the Results page.
  */
 export function arrangeHome(file: FanBattleFile): HomeLayout {
   const { games, results } = file;
   const live = games.filter((g) => g.state === "live");
   const upcoming = games.filter((g) => g.state === "upcoming");
-  const finals = games.filter((g) => g.state === "final");
+  const finals = games.filter((g) => g.state === "final" && hasEnoughFans(g));
   const featured = live[0] ?? finals[finals.length - 1] ?? upcoming[0] ?? null;
   const next = featured?.state === "final" ? (upcoming[0] ?? null) : null;
   const others = games.filter((g) => g !== featured && g !== next && g.state !== "final");
-  const newest = results[0] ?? null;
+  const newest = results.find(hasEnoughFans) ?? null;
   const lastResult = newest && newest.gameId !== featured?.gameId ? newest : null;
   return { featured, next, others, lastResult };
 }
@@ -157,6 +160,53 @@ export const fmt = (n: number) => n.toLocaleString("en-US");
 
 export function fanbase(side: Side): string {
   return `${nickname(side.code, side.name)} fans`;
+}
+
+// ─── Headlines and thin numbers ─────────────────────────────────────────────
+
+export type Headline = { headline: string; line: string };
+export type Headlines = Record<string, Headline>;
+
+/**
+ * The headline above a Fan Battle: the approved one from
+ * src/data/fan-battle-headlines.json if there is one (see headlines.ts),
+ * otherwise plain wording built from the two fanbases.
+ */
+export function headlineFor(game: Game, headlines: Headlines): Headline {
+  const written = headlines[game.gameId];
+  if (written) return written;
+  const a = fanbase(game.away);
+  const h = fanbase(game.home);
+  if (game.state === "live") {
+    return {
+      headline: `${a} against ${h}, live now.`,
+      line: "Every call counts for your side. Each side's best 10 players are added up, and the bigger total wins.",
+    };
+  }
+  return {
+    headline: `${a} against ${h}.`,
+    line: "Pick your side, call the next basket all game, and your side's best 10 players decide who wins.",
+  };
+}
+
+/** The short line for a smaller card, or null when nobody has written one. */
+export function cardLineFor(game: Game, headlines: Headlines): string | null {
+  return headlines[game.gameId]?.line ?? null;
+}
+
+/**
+ * Below this many fans across both sides, the home page doesn't show fan
+ * counts or put the result at the top, because a quiet game ("1 fan v 0 fans")
+ * makes the whole site look empty. The Results pages still list every game.
+ */
+export const ENOUGH_FANS = 20;
+
+export function totalFans(game: Game): number {
+  return game.fans[game.away.code] + game.fans[game.home.code];
+}
+
+export function hasEnoughFans(game: Game): boolean {
+  return totalFans(game) >= ENOUGH_FANS;
 }
 
 /** "Q3", then "OT", "2OT" for overtimes. */

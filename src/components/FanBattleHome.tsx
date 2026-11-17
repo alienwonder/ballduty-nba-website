@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { FeaturedCard, GameRow, TopList, resultsHref } from "@/components/FanBattleCards";
 import LocalTime from "@/components/LocalTime";
 import StoreBadges from "@/components/StoreBadges";
-import { arrangeHome, needsLiveUpdates, parseFanBattle, resultLine, type FanBattleFile } from "@/lib/fanBattle";
+import { arrangeHome, needsLiveUpdates, parseFanBattle, resultLine, type FanBattleFile, type Headlines } from "@/lib/fanBattle";
 import { sideColours } from "@/lib/teams";
 
 const EVERY = 25_000;
@@ -54,7 +54,15 @@ function useLiveFile(initial: FanBattleFile, url: string): FanBattleFile {
 const section = "max-w-site mx-auto px-4 sm:px-6 lg:px-8";
 const h2 = "font-display text-3xl sm:text-4xl";
 
-export default function FanBattleHome({ initial, liveUpdateUrl }: { initial: FanBattleFile; liveUpdateUrl: string }) {
+export default function FanBattleHome({
+  initial,
+  liveUpdateUrl,
+  headlines,
+}: {
+  initial: FanBattleFile;
+  liveUpdateUrl: string;
+  headlines: Headlines;
+}) {
   const file = useLiveFile(initial, liveUpdateUrl);
   const { featured, next, others, lastResult } = arrangeHome(file);
 
@@ -62,14 +70,14 @@ export default function FanBattleHome({ initial, liveUpdateUrl }: { initial: Fan
     <div>
       <section className="bg-[var(--night)] text-white">
         <div className={`${section} pt-10 pb-14 sm:pt-16 sm:pb-20`}>
-          {featured ? <FeaturedCard game={featured} /> : <NothingScheduled />}
+          {featured ? <FeaturedCard game={featured} headlines={headlines} /> : <NothingScheduled />}
           {next && (
             <div className="mt-14 max-w-[640px] mx-auto text-left">
               <p className="font-condensed font-bold uppercase tracking-[0.2em] text-sm text-white/60 mb-3">
                 Next Fan Battle
               </p>
               <div className="border border-white/15 rounded-2xl">
-                <GameRow game={next} />
+                <GameRow game={next} headlines={headlines} />
               </div>
             </div>
           )}
@@ -81,7 +89,7 @@ export default function FanBattleHome({ initial, liveUpdateUrl }: { initial: Fan
           <h2 className={h2}>This week&rsquo;s Fan Battles</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {others.map((g) => (
-              <GameRow key={g.gameId} game={g} />
+              <GameRow key={g.gameId} game={g} headlines={headlines} />
             ))}
           </div>
         </section>
