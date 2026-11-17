@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BestTenBar, TopList } from "@/components/FanBattleCards";
-import LocalTime from "@/components/LocalTime";
+import GameTime from "@/components/GameTime";
 import { fmt, resultLine, type Game } from "@/lib/fanBattle";
 import { getFanBattle } from "@/lib/fanBattleSource";
 import { sideColours } from "@/lib/teams";
@@ -55,7 +55,7 @@ export default async function ResultPage({ params }: Props) {
           <h1 className="mt-4 font-display text-4xl sm:text-6xl leading-[1.05]">{line.headline}</h1>
           <p className="mt-4 text-lg sm:text-xl text-white/85">{line.detail}</p>
           <p className="mt-2 text-white/60">
-            {game.away.name} at {game.home.name}, <LocalTime iso={game.scheduled} variant="day" />
+            {game.away.name} at {game.home.name}, <GameTime iso={game.scheduled} variant="day" />
           </p>
           <div className="mt-10 max-w-[640px] mx-auto">
             <BestTenBar game={game} colours={colours} />

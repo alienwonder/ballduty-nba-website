@@ -1,5 +1,11 @@
 # Changelog — NextBucket website
 
+## Nov 18, 2026 — Game times in ET for the US and Canada, local time elsewhere
+
+Pete saw AEDT on the poster and asked for ET, because the site's audience is NBA fans in the US. Until now every game time showed in the visitor's own time zone. Now a visitor whose browser is set to a US or Canadian time zone sees Eastern time ("Sat, Nov 21 · 7:30 PM ET"), whichever of those zones they're in, because that's how the league and its fans talk about tip-off. Everyone else still sees their own time ("Sun, Nov 22 · 11:30 AM AEDT"). Pete chose to count Canada with the US, since Canadian fans follow the same schedule.
+
+The browser's time-zone setting decides it, so the site never works out where a visitor is, and the privacy policy doesn't change. The page leaves the server in ET, and a browser outside North America swaps in its own time when it loads. The rule and the list of US and Canadian zones are in `src/lib/gameTime.ts`. The component was `LocalTime` and is now `GameTime`. Checked across twelve zones (New York, Los Angeles, Indianapolis, Honolulu, Toronto, Vancouver, St John's, Sydney, London, Mexico City and the server), and on the local site with the sample file in a Melbourne browser.
+
 ## Nov 17, 2026 — The home page's top section becomes a fight poster (branch `fan-battle-poster`, not live)
 
 Pete felt the home page looked neat but AI-made, and too quiet for people arriving from NBA subreddits. He also noticed the top of the page could show a result like "It's a tie, 1 PHX fan and 0 DEN fans", which makes the whole site look empty. Pete approved the mock-up on Nov 17, 2026, and this builds it.

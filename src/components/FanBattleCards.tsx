@@ -5,7 +5,7 @@
 
 import Link from "next/link";
 import { BackButton, JoinButton, PosterBackButton } from "@/components/GetAppPanel";
-import LocalTime from "@/components/LocalTime";
+import GameTime from "@/components/GameTime";
 import {
   cardLineFor,
   fanbase,
@@ -124,7 +124,7 @@ function Poster({ game, colours, headline }: { game: Game; colours: [string, str
         {!live && (
           <>
             {" · "}
-            <LocalTime iso={game.scheduled} />
+            <GameTime iso={game.scheduled} />
           </>
         )}
         {" · "}
@@ -249,7 +249,7 @@ function Final({ game, colours }: { game: Game; colours: [string, string] }) {
       <h2 className="mt-4 font-display text-4xl sm:text-6xl leading-[1.05]">{line.headline}</h2>
       <p className="mt-4 text-lg sm:text-xl text-white/85">{line.detail}</p>
       <p className="mt-2 text-white/60">
-        {game.away.name} at {game.home.name}, <LocalTime iso={game.scheduled} variant="day" />
+        {game.away.name} at {game.home.name}, <GameTime iso={game.scheduled} variant="day" />
       </p>
       <div className="mt-8 max-w-[640px] mx-auto">
         <BestTenBar game={game} colours={colours} />
@@ -377,7 +377,7 @@ export function GameRow({ game, headlines = {} }: { game: Game; headlines?: Head
                 Live now{game.clock ? ` · ${periodLabel(game.clock.period)} ${game.clock.display}` : ""}
               </span>
             ) : (
-              <LocalTime iso={game.scheduled} />
+              <GameTime iso={game.scheduled} />
             )}
           </p>
         </div>

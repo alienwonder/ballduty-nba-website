@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { resultsHref } from "@/components/FanBattleCards";
-import LocalTime from "@/components/LocalTime";
+import GameTime from "@/components/GameTime";
 import { fanbase, fmt, winCounts } from "@/lib/fanBattle";
 import { getFanBattle } from "@/lib/fanBattleSource";
 import { nickname, sideColours } from "@/lib/teams";
@@ -66,7 +66,7 @@ export default async function ResultsPage() {
                     className="flex flex-col sm:flex-row sm:items-center gap-x-6 gap-y-1 rounded-2xl bg-white border border-[var(--border)] p-5 hover:border-[var(--accent)] transition-colors"
                   >
                     <span className="text-sm text-[var(--muted)] sm:w-36 shrink-0">
-                      <LocalTime iso={g.scheduled} variant="date" />
+                      <GameTime iso={g.scheduled} variant="date" />
                     </span>
                     <span className="font-condensed font-bold text-xl tracking-wide sm:w-32 shrink-0">
                       <span className="inline-block h-2.5 w-2.5 rounded-full mr-1.5 align-middle" style={{ background: ca }} aria-hidden />

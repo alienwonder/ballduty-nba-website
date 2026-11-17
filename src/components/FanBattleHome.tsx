@@ -13,7 +13,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FeaturedCard, GameRow, TopList, resultsHref } from "@/components/FanBattleCards";
-import LocalTime from "@/components/LocalTime";
+import GameTime from "@/components/GameTime";
 import StoreBadges from "@/components/StoreBadges";
 import { arrangeHome, needsLiveUpdates, parseFanBattle, resultLine, type FanBattleFile, type Headlines } from "@/lib/fanBattle";
 import { sideColours } from "@/lib/teams";
@@ -157,7 +157,7 @@ function LastResult({ game }: { game: FanBattleFile["results"][number] }) {
       className="mt-6 block rounded-2xl bg-[var(--night)] text-white p-6 sm:p-8 hover:ring-2 hover:ring-[var(--accent)] transition"
     >
       <p className="text-sm text-white/60">
-        {game.away.code} @ {game.home.code}, <LocalTime iso={game.scheduled} variant="day" />
+        {game.away.code} @ {game.home.code}, <GameTime iso={game.scheduled} variant="day" />
       </p>
       <p className="mt-2 font-display text-3xl sm:text-4xl">{line.headline}</p>
       <p className="mt-2 text-white/80">{line.detail}</p>
