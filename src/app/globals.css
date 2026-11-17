@@ -138,3 +138,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .get-app-panel[open] { animation: none; }
 }
+
+/* The heart on the Fan Battle poster gives a little pop on each tap
+   (components/Hearts.tsx). Only for visitors who haven't asked for less
+   motion. */
+@keyframes heart-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.45); }
+  100% { transform: scale(1); }
+}

@@ -29,6 +29,12 @@ export type Game = {
   best10: Record<string, number>;
   top: Record<string, TopEntry[]>;
   winner: string | null;
+  /**
+   * Hearts from website visitors, by team code (Nov 18, 2026). Cheering only:
+   * never part of the best 10 or the winner. Null in a file written before
+   * hearts existed, and the page then shows no hearts.
+   */
+  hearts: Record<string, number> | null;
 };
 
 export type FanBattleFile = {
@@ -97,6 +103,7 @@ function parseGame(v: unknown): Game | null {
     best10: numbersFor(v.best10, codes),
     top: topFor(v.top, codes),
     winner,
+    hearts: isObj(v.hearts) ? numbersFor(v.hearts, codes) : null,
   };
 }
 

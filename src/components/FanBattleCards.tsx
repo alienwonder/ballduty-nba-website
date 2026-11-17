@@ -6,6 +6,7 @@
 import Link from "next/link";
 import { BackButton, JoinButton, PosterBackButton } from "@/components/GetAppPanel";
 import GameTime from "@/components/GameTime";
+import { HeartButton, HeartsResult, useHeartsOpen } from "@/components/Hearts";
 import {
   cardLineFor,
   fanbase,
@@ -73,6 +74,7 @@ export function FeaturedCard({ game, headlines }: { game: Game; headlines: Headl
 function Poster({ game, colours, headline }: { game: Game; colours: [string, string]; headline: Headline }) {
   const poster = posterColours(game.away.code, game.home.code);
   const live = game.state === "live";
+  const heartsOpen = useHeartsOpen(game);
   return (
     <div>
       <Label>
@@ -129,6 +131,7 @@ function Poster({ game, colours, headline }: { game: Game; colours: [string, str
         )}
         {" · "}
         {BEST_10_RULE}
+        {heartsOpen && " Tap a heart to cheer your team. Hearts are cheers, not points, and don't count in the Fan Battle."}
       </p>
     </div>
   );
@@ -182,6 +185,7 @@ function PosterSide({
 }) {
   const right = align === "right";
   const place = right ? "sm:col-start-3" : "sm:col-start-1";
+  const heartsOpen = useHeartsOpen(game);
   return (
     <div className={`row-start-2 sm:row-start-1 ${place} grid gap-1 min-w-0 ${right ? "justify-items-end text-right" : "justify-items-start text-left"}`}>
       <p className="font-condensed font-bold uppercase tracking-[0.15em] text-[11px] sm:text-sm leading-tight text-white/90 max-w-full">
@@ -193,9 +197,12 @@ function PosterSide({
       >
         {side.code}
       </p>
-      {game.state === "upcoming" && (
-        <div className="mt-3">
-          <PosterBackButton code={side.code} label={`Back the ${nickname(side.code, side.name)}`} colour={colour} />
+      {(game.state === "upcoming" || heartsOpen) && (
+        <div className={`mt-3 flex flex-wrap items-center gap-2 ${right ? "justify-end" : "justify-start"}`}>
+          {game.state === "upcoming" && (
+            <PosterBackButton code={side.code} label={`Back the ${nickname(side.code, side.name)}`} colour={colour} />
+          )}
+          {heartsOpen && <HeartButton game={game} side={side} />}
         </div>
       )}
     </div>
@@ -258,6 +265,9 @@ function Final({ game, colours }: { game: Game; colours: [string, string] }) {
         {[game.away, game.home].map((side, i) => (
           <TopList key={side.code} side={side} entries={game.top[side.code].slice(0, 3)} colour={colours[i]} onDark title={`Top 3 for ${side.code}`} />
         ))}
+      </div>
+      <div className="mt-6 max-w-[640px] mx-auto">
+        <HeartsResult game={game} />
       </div>
       <Link
         href={resultsHref(game)}

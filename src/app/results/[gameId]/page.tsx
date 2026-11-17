@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BestTenBar, TopList } from "@/components/FanBattleCards";
 import GameTime from "@/components/GameTime";
+import { HeartsResult } from "@/components/Hearts";
 import { fmt, resultLine, type Game } from "@/lib/fanBattle";
 import { getFanBattle } from "@/lib/fanBattleSource";
 import { sideColours } from "@/lib/teams";
@@ -59,6 +60,9 @@ export default async function ResultPage({ params }: Props) {
           </p>
           <div className="mt-10 max-w-[640px] mx-auto">
             <BestTenBar game={game} colours={colours} />
+          </div>
+          <div className="mt-6 max-w-[640px] mx-auto">
+            <HeartsResult game={game} />
           </div>
         </div>
       </section>

@@ -26,7 +26,11 @@
         "POR": [],
         "NYK": []
       },
-      "winner": null
+      "winner": null,
+      "hearts": {
+        "POR": 412,
+        "NYK": 367
+      }
     },
     {
       "gameId": "espn-401810262",
@@ -53,7 +57,11 @@
         "BOS": [],
         "GSW": []
       },
-      "winner": null
+      "winner": null,
+      "hearts": {
+        "BOS": 88,
+        "GSW": 140
+      }
     },
     {
       "gameId": "espn-401810290",
@@ -80,7 +88,11 @@
         "MIA": [],
         "CHI": []
       },
-      "winner": null
+      "winner": null,
+      "hearts": {
+        "MIA": 23,
+        "CHI": 9
+      }
     }
   ],
   "results": [
@@ -191,7 +203,11 @@
           }
         ]
       },
-      "winner": "LAL"
+      "winner": "LAL",
+      "hearts": {
+        "LAL": 1240,
+        "GSW": 980
+      }
     },
     {
       "gameId": "espn-401810131",
@@ -300,7 +316,11 @@
           }
         ]
       },
-      "winner": "PHI"
+      "winner": "PHI",
+      "hearts": {
+        "BOS": 1240,
+        "PHI": 980
+      }
     }
   ]
 }

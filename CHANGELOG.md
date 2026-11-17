@@ -1,5 +1,17 @@
 # Changelog — NextBucket website
 
+## Nov 18, 2026 — Hearts on the Fan Battle poster, and a thank-you that invites visitors into the app (not switched on)
+
+Pete wanted visitors to be able to give a team some love without signing in, with additions only and a guard against bots. He approved the plan with all seven suggestions (`ballduty-nba/docs/Claude Code - Era/Plans/2026-11-18-Fan-Battle-Hearts-Plan.md`). The backend function, `giveFanBattleHearts`, is in the app repo.
+
+Each half of the poster gets a heart button with that team's count, before and during the game. Taps show at once and are sent together after a 2-second pause, at most 20 to a message. The first message of a visit runs Cloudflare Turnstile, which most people never see, and later ones carry the pass the function hands back. The count never goes down on the visitor's screen, and taps the function drops over its limits still show there, so a cheater can't easily tell what got through (`src/components/Hearts.tsx`). The caption under the poster says hearts are cheers, not points, and don't count in the Fan Battle.
+
+After a visitor's first hearts go through, the Back panel opens once per Fan Battle per browser: "You sent 12 hearts to Knicks fans", then an invitation to get NextBucket, back the team and call baskets, with the store buttons and "Keep cheering". During the game the invitation says the game's on. The browser remembers it has shown, and if it forgets, the visitor just sees it again.
+
+Finished games show the totals on the home page's result and on each game's results page: "Visitors sent 1,240 hearts to the Lakers and 980 to the Warriors. Hearts are cheers, not points." The Fan Battle file's new `hearts` field is read by `src/lib/fanBattle.ts`, and a file without it shows no hearts.
+
+Hearts stay off until `TURNSTILE_SITE_KEY` is set in Vercel (`src/lib/heartsConfig.ts`), so this can go live before the backend is deployed. With a sample file, hearts go to `/hearts-sample`, a stand-in that answers like the function, and the samples now carry hearts. Checked locally with Cloudflare's always-pass test key on a computer and a phone: 25 quick taps went out as one message with the check and one with the pass, the count added up exactly, and the thank-you showed once with the right wording. The NextBucket privacy policy needs the wording in the plan's section 8 before the key is set.
+
 ## Nov 18, 2026 — Game times in ET for the US and Canada, local time elsewhere
 
 Pete saw AEDT on the poster and asked for ET, because the site's audience is NBA fans in the US. Until now every game time showed in the visitor's own time zone. Now a visitor whose browser is set to a US or Canadian time zone sees Eastern time ("Sat, Nov 21 · 7:30 PM ET"), whichever of those zones they're in, because that's how the league and its fans talk about tip-off. Everyone else still sees their own time ("Sun, Nov 22 · 11:30 AM AEDT"). Pete chose to count Canada with the US, since Canadian fans follow the same schedule.

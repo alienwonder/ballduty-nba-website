@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import FanBattleHome from "@/components/FanBattleHome";
 import { getFanBattle, liveUpdateUrl } from "@/lib/fanBattleSource";
 import { loadHeadlines } from "@/lib/headlines";
+import { heartsConfig } from "@/lib/heartsConfig";
 
 // Fan Battle is the home page (plan section 3, Nov 13, 2026). Until then the
 // home page was the game in four steps, which moved to /how-to-play.
@@ -21,7 +22,7 @@ export default async function HomePage() {
   return (
     <>
       <h1 className="sr-only">NBA Fan Battles on NextBucket</h1>
-      <FanBattleHome initial={file} liveUpdateUrl={liveUpdateUrl()} headlines={loadHeadlines()} />
+      <FanBattleHome initial={file} liveUpdateUrl={liveUpdateUrl()} headlines={loadHeadlines()} hearts={heartsConfig()} />
     </>
   );
 }

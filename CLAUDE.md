@@ -74,7 +74,9 @@ FAN_BATTLE_SAMPLE=upcoming npm run dev    # or live, final, none
 
 The production site ignores that setting.
 
-The headline above each Fan Battle comes from `src/data/fan-battle-headlines.json`, keyed by game ID (Nov 17, 2026). CC drafts each one from the news before the battle and Pete approves it before it ships, because a deploy is the approval. Keep to trash talk, form and injuries a named news source reported, and never anything about a player's private life. A game without one gets plain wording. The shared checklist for all Fan Battle work is
+The headline above each Fan Battle comes from `src/data/fan-battle-headlines.json`, keyed by game ID (Nov 17, 2026). CC drafts each one from the news before the battle and Pete approves it before it ships, because a deploy is the approval. Keep to trash talk, form and injuries a named news source reported, and never anything about a player's private life. A game without one gets plain wording.
+
+Hearts (Nov 18, 2026, `src/components/Hearts.tsx`) are the site's only write: visitors tap a heart for a team and the page sends the taps to the `giveFanBattleHearts` function in the app repo, with a Cloudflare Turnstile check once per visit. They're off until `TURNSTILE_SITE_KEY` is set in Vercel. Hearts never count towards a Fan Battle's result, and the privacy policy has to describe them before the key is set. The shared checklist for all Fan Battle work is
 `ballduty-nba/FAN_BATTLE_CHECKLIST.md`, and section 4 is the website's.
 
 ## Running it

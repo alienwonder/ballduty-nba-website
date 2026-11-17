@@ -16,9 +16,19 @@ import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { APP_STORE, GOOGLE_PLAY, platformFrom, type Platform } from "@/lib/stores";
 
-type Reason = { kind: "back"; code: string } | { kind: "join" } | { kind: "app" };
+export type Reason =
+  | { kind: "back"; code: string }
+  | { kind: "join" }
+  | { kind: "app" }
+  // After a visitor's first hearts go through (Hearts.tsx, Nov 18, 2026).
+  | { kind: "hearts"; code: string; team: string; sent: number; live: boolean };
 
 const OpenPanel = createContext<(reason: Reason) => void>(() => {});
+
+/** Opens the panel, for components outside this file. */
+export function useOpenPanel() {
+  return useContext(OpenPanel);
+}
 
 export function GetAppProvider({ children }: { children: React.ReactNode }) {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -59,6 +69,15 @@ export function GetAppProvider({ children }: { children: React.ReactNode }) {
           <div className="mt-6">
             <StoreChoice platform={platform} />
           </div>
+          {reason.kind === "hearts" && (
+            <button
+              type="button"
+              onClick={close}
+              className="mt-5 font-semibold text-[var(--accent-ink)] underline underline-offset-4"
+            >
+              Keep cheering
+            </button>
+          )}
           {/* The email box for Fan Battle reminders goes here, after the first Fan Battle. */}
           <p className="mt-6 text-xs leading-relaxed text-[var(--muted)]">
             Fan Battle results, with each player&rsquo;s leaderboard name and points, are
@@ -80,7 +99,9 @@ function PanelText({ reason }: { reason: Reason }) {
       ? `You're backing ${reason.code}.`
       : reason.kind === "join"
         ? "Join the Fan Battle."
-        : "Get NextBucket.";
+        : reason.kind === "hearts"
+          ? `You sent ${reason.sent} ${reason.sent === 1 ? "heart" : "hearts"} to ${reason.team} fans.`
+          : "Get NextBucket.";
   return (
     <>
       <h2 id="get-app-title" className="font-display text-3xl pr-8">
@@ -101,6 +122,22 @@ function PanelText({ reason }: { reason: Reason }) {
         <p className="mt-3 text-lg leading-snug">
           The game&rsquo;s on now. Get NextBucket and back a side on the game at the top. You can
           join mid-game, and your side is fixed as soon as you pick it.
+        </p>
+      )}
+      {reason.kind === "hearts" && (
+        <p className="mt-3 text-lg leading-snug">
+          {reason.live ? (
+            <>
+              The game&rsquo;s on. Get NextBucket, back the {reason.team} and start calling baskets
+              now.
+            </>
+          ) : (
+            <>
+              Want to do more than cheer? Get NextBucket, back the {reason.team}, and call the next
+              basket during the game. Every call you land adds to the {reason.team} fans&rsquo; score,
+              and the best 10 decide the Fan Battle.
+            </>
+          )}
         </p>
       )}
       {reason.kind === "app" && (

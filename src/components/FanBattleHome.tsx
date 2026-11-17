@@ -14,6 +14,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FeaturedCard, GameRow, TopList, resultsHref } from "@/components/FanBattleCards";
 import GameTime from "@/components/GameTime";
+import { HeartsProvider } from "@/components/Hearts";
+import type { HeartsConfig } from "@/lib/heartsConfig";
 import StoreBadges from "@/components/StoreBadges";
 import { arrangeHome, needsLiveUpdates, parseFanBattle, resultLine, type FanBattleFile, type Headlines } from "@/lib/fanBattle";
 import { sideColours } from "@/lib/teams";
@@ -58,74 +60,78 @@ export default function FanBattleHome({
   initial,
   liveUpdateUrl,
   headlines,
+  hearts,
 }: {
   initial: FanBattleFile;
   liveUpdateUrl: string;
   headlines: Headlines;
+  hearts: HeartsConfig | null;
 }) {
   const file = useLiveFile(initial, liveUpdateUrl);
   const { featured, next, others, lastResult } = arrangeHome(file);
 
   return (
-    <div>
-      <section className="bg-[var(--night)] text-white">
-        <div className={`${section} pt-10 pb-14 sm:pt-16 sm:pb-20`}>
-          {featured ? <FeaturedCard game={featured} headlines={headlines} /> : <NothingScheduled />}
-          {next && (
-            <div className="mt-14 max-w-[640px] mx-auto text-left">
-              <p className="font-condensed font-bold uppercase tracking-[0.2em] text-sm text-white/60 mb-3">
-                Next Fan Battle
-              </p>
-              <div className="border border-white/15 rounded-2xl">
-                <GameRow game={next} headlines={headlines} />
+    <HeartsProvider config={hearts}>
+      <div>
+        <section className="bg-[var(--night)] text-white">
+          <div className={`${section} pt-10 pb-14 sm:pt-16 sm:pb-20`}>
+            {featured ? <FeaturedCard game={featured} headlines={headlines} /> : <NothingScheduled />}
+            {next && (
+              <div className="mt-14 max-w-[640px] mx-auto text-left">
+                <p className="font-condensed font-bold uppercase tracking-[0.2em] text-sm text-white/60 mb-3">
+                  Next Fan Battle
+                </p>
+                <div className="border border-white/15 rounded-2xl">
+                  <GameRow game={next} headlines={headlines} />
+                </div>
               </div>
+            )}
+          </div>
+        </section>
+
+        {others.length > 0 && (
+          <section className={`${section} pt-14 sm:pt-20`}>
+            <h2 className={h2}>This week&rsquo;s Fan Battles</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {others.map((g) => (
+                <GameRow key={g.gameId} game={g} headlines={headlines} />
+              ))}
             </div>
-          )}
-        </div>
-      </section>
+          </section>
+        )}
 
-      {others.length > 0 && (
-        <section className={`${section} pt-14 sm:pt-20`}>
-          <h2 className={h2}>This week&rsquo;s Fan Battles</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {others.map((g) => (
-              <GameRow key={g.gameId} game={g} headlines={headlines} />
-            ))}
+        {lastResult && (
+          <section className={`${section} pt-14 sm:pt-20`}>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+              <h2 className={h2}>Last result</h2>
+              <Link href="/results" className="font-semibold text-[var(--accent-ink)] underline underline-offset-4">
+                All results
+              </Link>
+            </div>
+            <LastResult game={lastResult} />
+          </section>
+        )}
+
+        <section className={`${section} py-14 sm:py-20`}>
+          <div id="get-the-app" className="scroll-mt-32 rounded-2xl bg-white border border-[var(--border)] p-6 sm:p-10 text-center">
+            <h2 className={h2}>New to NextBucket?</h2>
+            <p className="mt-4 text-lg leading-relaxed max-w-[640px] mx-auto">
+              NextBucket is a free game you play on your phone while you watch the NBA. Every time
+              the ball goes in, you call who scores the next basket, and the earlier you call it,
+              the more it pays.
+            </p>
+            <p className="mt-3 text-[var(--muted)]">
+              <Link href="/how-to-play" className="text-[var(--accent-ink)] underline underline-offset-2">
+                How to play
+              </Link>
+            </p>
+            <div className="mt-8">
+              <StoreBadges />
+            </div>
           </div>
         </section>
-      )}
-
-      {lastResult && (
-        <section className={`${section} pt-14 sm:pt-20`}>
-          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-            <h2 className={h2}>Last result</h2>
-            <Link href="/results" className="font-semibold text-[var(--accent-ink)] underline underline-offset-4">
-              All results
-            </Link>
-          </div>
-          <LastResult game={lastResult} />
-        </section>
-      )}
-
-      <section className={`${section} py-14 sm:py-20`}>
-        <div id="get-the-app" className="scroll-mt-32 rounded-2xl bg-white border border-[var(--border)] p-6 sm:p-10 text-center">
-          <h2 className={h2}>New to NextBucket?</h2>
-          <p className="mt-4 text-lg leading-relaxed max-w-[640px] mx-auto">
-            NextBucket is a free game you play on your phone while you watch the NBA. Every time
-            the ball goes in, you call who scores the next basket, and the earlier you call it,
-            the more it pays.
-          </p>
-          <p className="mt-3 text-[var(--muted)]">
-            <Link href="/how-to-play" className="text-[var(--accent-ink)] underline underline-offset-2">
-              How to play
-            </Link>
-          </p>
-          <div className="mt-8">
-            <StoreBadges />
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </HeartsProvider>
   );
 }
 
