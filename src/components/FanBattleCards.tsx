@@ -43,7 +43,7 @@ function fansText(n: number) {
   return n === 1 ? "1 fan" : `${fmt(n)} fans`;
 }
 
-function Label({ children }: { children: React.ReactNode }) {
+export function Label({ children }: { children: React.ReactNode }) {
   return (
     <p className="font-condensed font-bold uppercase tracking-[0.2em] text-[var(--accent)] text-sm sm:text-base">
       {children}
@@ -138,7 +138,7 @@ function Poster({ game, colours, headline }: { game: Game; colours: [string, str
 }
 
 /** Half-court lines over the poster: halfway line, centre circle, both keys. */
-function CourtLines() {
+export function CourtLines() {
   return (
     <svg
       aria-hidden
@@ -159,7 +159,7 @@ function CourtLines() {
   );
 }
 
-function Versus() {
+export function Versus() {
   // Between the two sides on a computer; above them, centred, on a phone.
   return (
     <div className="col-span-2 row-start-1 justify-self-center sm:col-span-1 sm:col-start-2 sm:row-start-1">

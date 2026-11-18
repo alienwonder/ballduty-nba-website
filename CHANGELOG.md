@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Nov 18, 2026 — A "You v Them" poster when no Fan Battle is on
+
+Pete found the home page nearly empty once every Fan Battle in the file had finished, none of them had the 20 fans a result needs to show, and the next one wasn't nominated yet. The page fell back to one heading, a paragraph and the store badges. Now it shows a poster in the same style as a real Fan Battle: the slanted headline "Your fanbase against theirs.", a split in burnt orange and indigo (no team's colours) with the court lines and VS, "You" and "Them" in place of team codes, and a bar saying the next Fan Battle goes up there before tip-off. Under it go three steps (pick your side, call the next basket, the best 10 decide it) and the store badges. A real Fan Battle takes over as soon as one is in the file. `NothingScheduled` in `src/components/FanBattleHome.tsx`; `Label`, `CourtLines` and `Versus` are now exported from `FanBattleCards.tsx` so both posters share them. Pete saw the mockup and said go with it. Checked locally against the real file on a computer and at phone width, with no sideways scroll.
+
 ## Nov 18, 2026 — Privacy policy covers hearts (Pete approved the wording)
 
 Pete approved the wording in section 8 of the hearts plan on Nov 18, 2026, and it's now in the NextBucket privacy policy, dated Nov 18, 2026. Section 1 says what hearts keep (each team's total only), that the IP address behind a tap is held in memory for at most 12 hours and never saved, that Cloudflare Turnstile checks the visitor is a person, and that the browser remembers whether it has thanked them. Section 4 adds Cloudflare Turnstile, and section 6 says how long hearts and the IP address are kept. It has to be live before `TURNSTILE_SITE_KEY` is set, and it's safe to go live first, because hearts stay off until then.
