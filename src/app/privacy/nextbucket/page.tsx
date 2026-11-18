@@ -19,12 +19,15 @@ export const metadata: Metadata = {
 // backs, published results, Fan Battle emails, and website sign-ups without an
 // account) added Nov 13, 2026 from plan section 8a in the ballduty-nba repo's
 // Plans/2026-11-13-Fan-Battle-Plan.md, to be live before build 21 goes to
-// review. When the app starts collecting
+// review. Hearts on this website (Cloudflare Turnstile, IP addresses held in
+// memory only) added Nov 18, 2026, from the wording Pete approved in the
+// ballduty-nba repo's Plans/2026-11-18-Fan-Battle-Hearts-Plan.md, section 8,
+// from functions/fanBattleHearts.js and src/components/Hearts.tsx. When the app starts collecting
 // something new — purchases, push notifications — this page has to change
 // before that release ships.
 export default function NextBucketPrivacyPage() {
   return (
-    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Nov 13, 2026">
+    <LegalPage title="NextBucket Privacy Policy" lastUpdated="Nov 18, 2026">
       <p>
         This policy explains what the NextBucket app collects, why, who else handles it, and how
         to delete it. NextBucket is made by BallDuty Pty Ltd, an Australian company
@@ -79,6 +82,16 @@ export default function NextBucketPrivacyPage() {
           nothing else to it until you do. To stop one person signing up someone else&rsquo;s
           address over and over, our servers also keep the IP address each sign-up came from for
           24 hours, then delete it.
+        </li>
+        <li>
+          <strong>Hearts on this website.</strong> Anyone can tap a heart to cheer a team in a Fan
+          Battle, without an account. We keep only how many hearts each team got, with nothing
+          about who sent them. To stop one person sending thousands, our server holds the IP
+          address each tap came from in its memory for at most 12 hours, and never saves it. The
+          first time you tap, Cloudflare Turnstile checks that you&rsquo;re a person and not a
+          program, and to do that Cloudflare sees your IP address and some details of your
+          browser. Your browser also remembers whether it has thanked you for hearts in that game,
+          and that stays on your device.
         </li>
         <li>
           <strong>TV sync.</strong> If you sync the app to a delayed TV picture, each call you make
@@ -211,6 +224,10 @@ export default function NextBucketPrivacyPage() {
               <td>Vercel</td>
               <td>Hosts this website</td>
             </tr>
+            <tr>
+              <td>Cloudflare Turnstile</td>
+              <td>Checks that a person, not a program, is tapping hearts on this website</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -234,6 +251,8 @@ export default function NextBucketPrivacyPage() {
           we never email it again by mistake. An address signed up on this website that
           isn&rsquo;t confirmed within 7 days is deleted. The IP address a website sign-up came
           from is deleted after 24 hours.</li>
+        <li>Hearts: each team&rsquo;s total is kept with the Fan Battle&rsquo;s result. The IP
+          address behind a tap is never saved, and our server forgets it within 12 hours.</li>
         <li>Messages to support: 12 months, then deleted automatically. The support inbox also
           keeps a copy of the email, which we delete if you ask.</li>
         <li>Server logs: kept by Google and Vercel for their standard periods, then deleted.</li>

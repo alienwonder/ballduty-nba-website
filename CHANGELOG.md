@@ -1,5 +1,9 @@
 # Changelog — NextBucket website
 
+## Nov 18, 2026 — Privacy policy covers hearts (Pete approved the wording)
+
+Pete approved the wording in section 8 of the hearts plan on Nov 18, 2026, and it's now in the NextBucket privacy policy, dated Nov 18, 2026. Section 1 says what hearts keep (each team's total only), that the IP address behind a tap is held in memory for at most 12 hours and never saved, that Cloudflare Turnstile checks the visitor is a person, and that the browser remembers whether it has thanked them. Section 4 adds Cloudflare Turnstile, and section 6 says how long hearts and the IP address are kept. It has to be live before `TURNSTILE_SITE_KEY` is set, and it's safe to go live first, because hearts stay off until then.
+
 ## Nov 18, 2026 — Hearts on the Fan Battle poster, and a thank-you that invites visitors into the app (not switched on)
 
 Pete wanted visitors to be able to give a team some love without signing in, with additions only and a guard against bots. He approved the plan with all seven suggestions (`ballduty-nba/docs/Claude Code - Era/Plans/2026-11-18-Fan-Battle-Hearts-Plan.md`). The backend function, `giveFanBattleHearts`, is in the app repo.
